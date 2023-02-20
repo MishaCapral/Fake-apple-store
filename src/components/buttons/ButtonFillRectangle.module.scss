@@ -1,0 +1,36 @@
+@import '../../constants/variables.scss';
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $blue;
+  width: 180px;
+  height: 43px;
+  border: 2px solid $blue;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color $duration ease-in-out;
+  border-color: $duration ease-in-out;
+
+  &,
+  span {
+    color: $white;
+  }
+
+  i,
+  span,
+  path,
+  svg {
+    transition: all $duration ease-in-out;
+  }
+
+  &:hover {
+    background-color: darken($blue, 8%);
+  }
+
+  &:active {
+    background-color: darken($blue, 12%);
+    transform: translateY(1px);
+  }
+}

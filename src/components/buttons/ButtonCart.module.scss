@@ -1,0 +1,44 @@
+@import '../../constants/variables.scss';
+
+.cart {
+  display: flex;
+  justify-content: center;
+  background-color: $blue;
+  border-radius: 30px;
+  padding: 10px 20px;
+  min-width: 100px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color $duration ease-in-out,
+    border-color $duration ease-in-out;
+  border: 1px solid transparent;
+
+  &,
+  span {
+    color: $white;
+  }
+
+  i,
+  span,
+  path,
+  svg {
+    transition: all $duration ease-in-out;
+  }
+
+  &:hover {
+    background-color: darken($blue, 8%);
+  }
+
+  &:active {
+    background-color: darken($blue, 12%);
+    transform: translateY(1px);
+  }
+
+  &__delimiter {
+    width: 1px;
+    height: 25px;
+    background-color: $gray-line;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+}

@@ -1,0 +1,41 @@
+@import '../../constants/variables.scss';
+
+.search {
+  position: relative;
+
+  &__searchIcon {
+    color: $gray;
+    position: absolute;
+    left: 10px;
+    top: 13px;
+    cursor: pointer;
+  }
+
+  &__clearIcon {
+    color: $gray;
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    cursor: pointer;
+    &:hover {
+      color: $gray-active;
+    }
+  }
+
+  &__input {
+    border: 2px solid $gray;
+    padding: 12px 20px;
+    padding-left: 40px;
+    width: 280px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    &:focus {
+      border: 2px solid $gray-active;
+    }
+  }
+}
+
+::placeholder {
+  color: $gray;
+}
