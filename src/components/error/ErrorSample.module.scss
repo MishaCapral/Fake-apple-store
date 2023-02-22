@@ -1,0 +1,16 @@
+@import '../../constants/variables.scss';
+
+.error {
+  text-align: center;
+
+  &_icon {
+    transform: scale(1.4);
+    margin-right: 10px;
+  }
+
+  p {
+    margin: 10px;
+    font-size: 20px;
+    color: $gray-text;
+  }
+}

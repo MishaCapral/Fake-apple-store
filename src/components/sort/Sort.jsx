@@ -1,18 +1,17 @@
 import { useToggle } from 'react-use';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import styles from './Sort.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSortId } from '../../redux/slices/filterSlice';
 
-const Sort = ({ value, onClickSort }) => {
+const Sort = () => {
+  const { sortId, sortList } = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
+
   const [popup, setPopup] = useToggle(false);
 
-  const list = [
-    { name: 'alphabet', sortProperty: 'alphabet' },
-    { name: 'price: low to high', sortProperty: 'price' },
-    { name: 'price: high to low', sortProperty: '-price' },
-  ];
-
   const onClickPopupItem = (item) => {
-    onClickSort(item);
+    dispatch(setSortId(item));
     setPopup();
   };
 
@@ -21,17 +20,17 @@ const Sort = ({ value, onClickSort }) => {
       <div className={styles.sort__label} onClick={() => setPopup()}>
         <ArrowDropDownIcon className={popup ? styles.sort__rotate : ''} />
         <b>Sort by:</b>
-        <span>{value.name}</span>
+        <span>{sortId.name}</span>
       </div>
       {popup && (
         <div className={styles.sort__popup}>
           <ul>
-            {list.map((item, index) => (
+            {sortList.map((item, index) => (
               <li
                 key={index}
                 onClick={() => onClickPopupItem(item)}
                 className={
-                  value.sortProperty === item.sortProperty ? styles.active : ''
+                  sortId.sortProperty === item.sortProperty ? styles.active : ''
                 }
               >
                 {item.name}
