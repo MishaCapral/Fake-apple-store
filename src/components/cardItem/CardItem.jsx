@@ -1,7 +1,15 @@
 import ButtonAdd from '../buttons/ButtonAdd';
 import styles from './CardItem.module.scss';
 
-const CardItem = ({ title, subtitle = '', img, version, memory, price }) => {
+const CardItem = ({
+  title,
+  subtitle = '',
+  img,
+  version,
+  memory,
+  price,
+  activeVariants,
+}) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.item}>
@@ -13,15 +21,32 @@ const CardItem = ({ title, subtitle = '', img, version, memory, price }) => {
         <div className={styles.item__selector}>
           <ul>
             {version.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li
+                key={index}
+                className={
+                  activeVariants.versionIndex === index
+                    ? styles.item__active
+                    : ''
+                }
+              >
+                {item.type}
+              </li>
             ))}
-            {/* <li className='active'>Global</li> */}
           </ul>
+
           <ul>
             {memory.map((item, index) => (
-              <li key={index}>{item}GB</li>
+              <li
+                key={index}
+                className={
+                  activeVariants.memoryIndex === index
+                    ? styles.item__active
+                    : ''
+                }
+              >
+                {item.type}GB
+              </li>
             ))}
-            {/* <li className='active'>128GB</li> */}
           </ul>
         </div>
         <div className={styles.item__bottom}>

@@ -5,7 +5,8 @@ const itemsSlice = createSlice({
   name: "items",
   initialState: {
     items: [],
-    status: 'loading'
+    status: 'loading' | 'succsess' | 'error',
+
   },
   reducers: {
     setItems: (state, action) => {
@@ -25,10 +26,10 @@ const itemsSlice = createSlice({
       state.status = 'error'
       state.items = []
 
-    },
+    }
   }
 })
 
-export const { setItems, setError } = itemsSlice.actions
+export const { setItems } = itemsSlice.actions
 
 export default itemsSlice.reducer

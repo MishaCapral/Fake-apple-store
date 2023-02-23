@@ -62,6 +62,7 @@ const Home = () => {
                     memory={item.memory}
                     version={item.version}
                     price={item.price}
+                    activeVariants={item.activeVariants}
                   />
                 ))}
           </div>
