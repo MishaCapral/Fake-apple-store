@@ -1,13 +1,11 @@
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import ErrorSample from '../../components/error/ErrorSample';
 import styles from './NotFound.module.scss';
 
 const NotFound = () => {
   return (
-    <h1 className={styles.root}>
-      <SentimentVeryDissatisfiedIcon fontSize='large' className={styles.icon} />
-      Ooops <br />
-      Page not found
-    </h1>
+    <div className={styles.root}>
+      <ErrorSample text='Page not Found' />
+    </div>
   );
 };
 

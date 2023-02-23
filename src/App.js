@@ -5,21 +5,25 @@ import Cart from './pages/cart/Cart';
 import NotFound from './pages/notFound/NotFound';
 import './scss/app.scss';
 import SearchContextProvider from './context/SearchContext';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 function App() {
   return (
-    <SearchContextProvider>
-      <div className="wrapper">
-        <Header />
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+    <Provider store={store}>
+      <SearchContextProvider>
+        <div className="wrapper">
+          <Header />
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </SearchContextProvider>
+      </SearchContextProvider>
+    </Provider>
 
   );
 }
