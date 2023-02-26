@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Search from '../search/Search';
 import styles from './Header.module.scss';
 import AppleIcon from '@mui/icons-material/Apple';
 import ButtonCart from '../buttons/ButtonCart';
 
 const Header = () => {
+  const path = '/';
+  const { pathname } = useLocation();
   return (
     <div className={styles.header}>
       <div className={styles.container}>
@@ -20,12 +22,16 @@ const Header = () => {
           </div>
         </div>
 
-        <div className={styles.header__search}>
-          <Search />
+        {path === pathname && (
+          <div className={styles.header__search}>
+            <Search />
+          </div>
+        )}
+        <div className={styles.header__button}>
+          <Link to='/cart'>
+            <ButtonCart />
+          </Link>
         </div>
-        <Link to='/cart'>
-          <ButtonCart />
-        </Link>
       </div>
     </div>
   );

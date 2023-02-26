@@ -1,8 +1,9 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "category": "IPhone",
     "title": "iPhone 14 Pro",
+    "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.",
     "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone14pro-202209?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1663611329492",
     "version": [
       { "type": "14 Pro", "AddToPrice": 0 },
@@ -17,9 +18,10 @@
     "price": 999
   },
   {
-    "id": 2,
+    "id": "2",
     "category": "IPhone",
     "title": "iPhone 14",
+    "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.",
     "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone14-202209?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1661958160674",
     "version": [
       { "type": "14", "AddToPrice": 0 },
@@ -34,9 +36,10 @@
     "price": 799
   },
   {
-    "id": 3,
+    "id": "3",
     "category": "IPhone",
     "title": "iPhone 13",
+    "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.",
     "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone13-202209?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1661958176452",
     "version": [
       { "type": "13 mini", "AddToPrice": 0 },
@@ -51,9 +54,10 @@
     "price": 599
   },
   {
-    "id": 4,
+    "id": "4",
     "category": "IPhone",
     "title": "iPhone SE",
+    "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.",
     "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphonese-202203?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1646415838921",
     "version": [{ "type": "SE", "AddToPrice": 0 }],
     "memory": [
@@ -65,10 +69,10 @@
     "price": 429
   },
   {
-    "id": 5,
+    "id": "5",
     "category": "IPad",
     "title": "iPad Pro",
-    "description": "The ultimate iPad experience with the most advanced technology.",
+    "description": "The ultimate iPad experience with the most advanced technology. Serious performance in a thin and light design. All the essentials in the most affordable iPad.",
     "img": "https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_pro__erf9x8mw04sy_large.png",
     "version": [
       { "type": "11-inch display", "AddToPrice": 0 },
@@ -83,10 +87,10 @@
     "price": 799
   },
   {
-    "id": 6,
+    "id": "6",
     "category": "IPad",
     "title": "iPad Air",
-    "description": "Serious performance in a thin and light design.",
+    "description": "The ultimate iPad experience with the most advanced technology. Serious performance in a thin and light design. All the essentials in the most affordable iPad.",
     "img": "https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_air__bxjv33pk6nte_large.png",
     "version": [{ "type": "11-inch display", "AddToPrice": 0 }],
     "memory": [
@@ -97,10 +101,10 @@
     "price": 599
   },
   {
-    "id": 7,
+    "id": "7",
     "category": "IPad",
     "title": "iPad",
-    "description": "The all‑new colorful iPad for the things you do every day.",
+    "description": "The ultimate iPad experience with the most advanced technology. Serious performance in a thin and light design. All the essentials in the most affordable iPad.",
     "img": "https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_10_9__f7p2wja0gwuy_large.png",
     "version": [
       { "type": "10th generation", "AddToPrice": 0 },
@@ -115,10 +119,10 @@
     "price": 449
   },
   {
-    "id": 8,
+    "id": "8",
     "category": "IPad",
     "title": "iPad mini",
-    "description": "The full iPad experience designed to fit in one hand.",
+    "description": "The ultimate iPad experience with the most advanced technology. Serious performance in a thin and light design. All the essentials in the most affordable iPad.",
     "img": "https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_mini__czcsk9ukpeie_large.png",
     "version": [{ "type": "mini", "AddToPrice": 0 }],
     "memory": [
@@ -129,9 +133,10 @@
     "price": 449
   },
   {
-    "id": 9,
+    "id": "9",
     "category": "Mac",
     "title": "MacBook Air",
+    "description": "Power. Its in the Air. MacBook Air with M1 is an incredibly portable laptop — its nimble and quick, with a silent, fanless design and a beautiful Retina display. Thanks to its slim profile and all-day battery life, this Air moves at the speed of lightness.",
     "img": "https://www.apple.com/v/mac/home/bs/images/overview/compare/compare_mba__fchj615oz0yi_large.png",
     "version": [
       { "type": "M1 chip", "AddToPrice": 0 },
@@ -145,9 +150,10 @@
     "price": 999
   },
   {
-    "id": 10,
+    "id": "10",
     "category": "Mac",
     "title": "MacBook Pro",
+    "description": "Pro anywhere.The new M2 chip makes the 13-inch MacBook Pro more capable than ever. The same compact design supports up to 20 hours of battery life1 and an active cooling system to sustain enhanced performance. Featuring a brilliant Retina display, a FaceTime HD camera, and studio-quality mics, its our most portable pro laptop.",
     "img": "https://www.apple.com/v/mac/home/bs/images/overview/compare/compare_mbp13__euj5z15300om_large.png",
     "version": [
       { "type": "13-inch display", "AddToPrice": 0 },

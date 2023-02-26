@@ -9,7 +9,7 @@ const paginationSlice = createSlice({
   initialState,
   reducers: {
     setPage: (state, action) => {
-      state.page = action.payload
+      state.page = Number(action.payload)
     }
   }
 })

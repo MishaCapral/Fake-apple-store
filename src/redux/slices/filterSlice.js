@@ -23,11 +23,16 @@ export const filterSlice = createSlice({
     },
     setSortId: (state, action) => {
       state.sortId = action.payload
+    },
+    setSearchParams: (state, action) => {
+      state.categoryId = action.payload.category
+      state.sortId = action.payload.sort
+
     }
   }
 
 })
 
-export const { setCategoryId, setSortId } = filterSlice.actions
+export const { setCategoryId, setSortId, setSearchParams } = filterSlice.actions
 
 export default filterSlice.reducer
