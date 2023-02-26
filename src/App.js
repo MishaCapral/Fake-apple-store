@@ -7,6 +7,7 @@ import './scss/app.scss';
 import SearchContextProvider from './context/SearchContext';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import ItemDetails from './pages/ItemDetails/ItemDetails';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <div className="content">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/item/:id" element={<ItemDetails />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
