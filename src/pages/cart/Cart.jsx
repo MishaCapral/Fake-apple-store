@@ -14,11 +14,11 @@ const Cart = () => {
         <div className={styles.cart__top}>
           <h2 className={styles.cart__title}>
             <ShoppingCartIcon />
-            Корзина
+            Bucket
           </h2>
           <div className={styles.cart__clear}>
             <DeleteIcon />
-            <span>Очистить корзину</span>
+            <span>clear</span>
           </div>
         </div>
 
@@ -38,7 +38,7 @@ const Cart = () => {
             </span>
           </div>
           <div className={styles.cart__bottom__buttons}>
-            <Link to='/'>
+            <Link to={-1}>
               <ButtonOutlineRectangle>
                 <ArrowBackIosIcon fontSize='small' />
                 <span>Back</span>

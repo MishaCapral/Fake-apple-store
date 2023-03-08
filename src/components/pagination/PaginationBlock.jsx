@@ -1,10 +1,27 @@
 import Pagination from '@mui/material/Pagination';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPage } from '../../redux/slices/paginationSlice';
+import { useSearchParams } from 'react-router-dom';
+import { setPage } from '../../redux/slices/filterSlice';
 
 function PaginationBlock() {
-  const { page } = useSelector((state) => state.pagination);
+  const { page, caregoryId } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // * Read query params from URL and update data
+  useEffect(() => {
+    const queryParams = searchParams.get('page');
+    queryParams && dispatch(setPage(queryParams));
+  }, [searchParams, dispatch, page, caregoryId]);
+
+  // * update URL when change category
+  useEffect(() => {
+    setSearchParams((searchParams) => {
+      searchParams.set('page', page);
+      return searchParams;
+    });
+  }, [page, caregoryId, setSearchParams]);
 
   const handleChange = (event, value) => {
     dispatch(setPage(value));

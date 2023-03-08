@@ -5,8 +5,7 @@ import AppleIcon from '@mui/icons-material/Apple';
 import ButtonCart from '../buttons/ButtonCart';
 
 const Header = () => {
-  const path = '/';
-  const { pathname } = useLocation();
+  const { search } = useLocation();
   return (
     <div className={styles.header}>
       <div className={styles.container}>
@@ -22,7 +21,7 @@ const Header = () => {
           </div>
         </div>
 
-        {path === pathname && (
+        {search && (
           <div className={styles.header__search}>
             <Search />
           </div>

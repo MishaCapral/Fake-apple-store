@@ -11,7 +11,8 @@ const initialState = {
   sortId: {
     name: 'alphabet',
     sortProperty: 'alphabet',
-  }
+  },
+  page: 1
 }
 
 export const filterSlice = createSlice({
@@ -27,12 +28,14 @@ export const filterSlice = createSlice({
     setSearchParams: (state, action) => {
       state.categoryId = action.payload.category
       state.sortId = action.payload.sort
-
+    },
+    setPage: (state, action) => {
+      state.page = Number(action.payload)
     }
   }
 
 })
 
-export const { setCategoryId, setSortId, setSearchParams } = filterSlice.actions
+export const { setCategoryId, setSortId, setSearchParams, setPage } = filterSlice.actions
 
 export default filterSlice.reducer

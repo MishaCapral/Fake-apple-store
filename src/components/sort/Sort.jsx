@@ -3,17 +3,36 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import styles from './Sort.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSortId } from '../../redux/slices/filterSlice';
+import { useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Sort = () => {
-  const { sortId, sortList } = useSelector((state) => state.filter);
+  const { sortId, sortList, categoryId } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
-
+  const [searchParams, setSearchParams] = useSearchParams();
   const [popup, setPopup] = useToggle(false);
 
   const onClickPopupItem = (item) => {
     dispatch(setSortId(item));
     setPopup();
   };
+
+  // * Read query params from URL and update data
+  useEffect(() => {
+    const queryParams = searchParams.get('sort');
+    const queryItem = sortList.find(
+      (item) => item.sortProperty === queryParams,
+    );
+    queryParams && dispatch(setSortId(queryItem));
+  }, [searchParams, sortList, dispatch]);
+
+  // * update URL when change category
+  useEffect(() => {
+    setSearchParams((searchParams) => {
+      searchParams.set('sort', sortId.sortProperty);
+      return searchParams;
+    });
+  }, [sortId, categoryId, setSearchParams]);
 
   return (
     <div className={styles.sort}>

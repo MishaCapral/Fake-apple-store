@@ -1,25 +1,30 @@
-import { Link, Navigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { useToggle } from 'react-use';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
+import { setItem } from '../../redux/slices/itemsSlice';
+import { CircularProgress, Dialog, DialogActions } from '@mui/material';
 import getItem from '../../api/getItem';
 import styles from './ItemDetails.module.scss';
 import InfoToggle from '../../components/infoToggle/InfoToggle';
 import ButtonAdd from '../../components/buttons/ButtonAdd';
 import CloseIcon from '@mui/icons-material/Close';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-import { CircularProgress, Dialog, DialogActions } from '@mui/material';
 
 function ItemDetails() {
   let { id } = useParams();
-  const [item, setItem] = useState();
   const [openModal, setOpenModal] = useToggle(false);
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
 
-  useEffect(() => {
+  const dispatch = useDispatch();
+  const { items } = useSelector((state) => state.items);
+
+  if (items.length === 0) {
     async function fetchItem() {
       try {
         const item = await getItem(id);
-        setItem(item);
+        dispatch(setItem([item]));
       } catch (error) {
         console.log(error);
         alert('something went wrong');
@@ -27,7 +32,8 @@ function ItemDetails() {
       }
     }
     fetchItem();
-  }, [id]);
+  }
+  const item = items.find((item) => item.id === id);
 
   if (!item) {
     return (
@@ -41,11 +47,9 @@ function ItemDetails() {
     <div className={styles.wrapper}>
       <div className={styles.imageContainer}>
         <img src={item.img} alt='product' onClick={setOpenModal} />
-        <Link to='/'>
-          <div className={styles.imageContainer__navigate}>
-            <KeyboardBackspaceIcon />
-          </div>
-        </Link>
+        <div className={styles.imageContainer__navigate}>
+          <KeyboardBackspaceIcon onClick={goBack} />
+        </div>
       </div>
 
       <div className={styles.infoContainer}>
@@ -55,13 +59,22 @@ function ItemDetails() {
             {item.description}
           </p>
           <InfoToggle
-            version={item.version}
-            memory={item.memory}
+            id={id}
+            type={item.type}
             activeVariants={item.activeVariants}
           />
+
           <div className={styles.infoContainer__bottom}>
-            <p className={styles.infoContainer__price}>Price: {item.price} $</p>
-            <ButtonAdd />{' '}
+            <p className={styles.infoContainer__price}>
+              Price:{' '}
+              {
+                item.type[item.activeVariants.versionIndex].version[
+                  item.activeVariants.memoryIndex
+                ].price
+              }{' '}
+              $
+            </p>
+            <ButtonAdd />
           </div>
         </div>
       </div>
