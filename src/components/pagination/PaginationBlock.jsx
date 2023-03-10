@@ -16,12 +16,12 @@ function PaginationBlock() {
   }, [searchParams, dispatch, page, caregoryId]);
 
   // * update URL when change category
-  useEffect(() => {
-    setSearchParams((searchParams) => {
-      searchParams.set('page', page);
-      return searchParams;
-    });
-  }, [page, caregoryId, setSearchParams]);
+  // useEffect(() => {
+  //   setSearchParams((searchParams) => {
+  //     searchParams.set('page', page);
+  //     return searchParams;
+  //   });
+  // }, [page, caregoryId, setSearchParams]);
 
   const handleChange = (event, value) => {
     dispatch(setPage(value));

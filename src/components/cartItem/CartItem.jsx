@@ -1,43 +1,91 @@
+import { useDispatch } from 'react-redux';
+import { motion, useAnimationControls } from 'framer-motion';
+import {
+  addProduct,
+  subtractProduct,
+  deleteProduct,
+} from '../../redux/slices/cartSlice';
+import Grid from '@mui/material/Grid';
 import styles from './CartItem.module.scss';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CloseIcon from '@mui/icons-material/Close';
 import ButtonCircle from '../buttons/ButtonCircle';
 
-function CartItem() {
+const CartItem = ({ product }) => {
+  const { id, title, img, model, memory, productPrice, count } = product;
+
+  const dispatch = useDispatch();
+
+  const plusProduct = () => dispatch(addProduct({ id, memory, model }));
+  const minusProduct = () => dispatch(subtractProduct({ id, memory, model }));
+
+  const controls = useAnimationControls();
+  const removeProduct = () => {
+    setTimeout(() => dispatch(deleteProduct({ id, memory, model })), 800);
+    controls.start({
+      opacity: 0,
+      height: 0,
+      margin: 0,
+      padding: 0,
+      overflow: 'hidden',
+    });
+  };
+
   return (
-    <div className={styles.item}>
-      <div className={styles.item__img}>
-        <img
-          src='https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg'
-          alt='Pizza'
-        />
-      </div>
-      <div className={styles.item__info}>
-        <h3>Title</h3>
-        <p>description</p>
-      </div>
-      <div className={styles.item__count}>
-        <ButtonCircle>
-          <RemoveIcon fontSize='small' />
-        </ButtonCircle>
+    <motion.div
+      initial={{ y: 5, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ ease: 'linear', duration: 0.5 }}
+    >
+      <motion.div animate={controls} transition={{ duration: 0.7 }}>
+        <div className={styles.item}>
+          <Grid container spacing={1}>
+            <Grid item xs={5}>
+              <div className={styles.item__descriptionWrapper}>
+                <div className={styles.item__img}>
+                  <img src={img} alt='cart product' />
+                </div>
 
-        <b>2</b>
+                <div className={styles.item__info}>
+                  <h3>{title}</h3>
+                  <p>{model}</p>
+                  <p>{memory} GB</p>
+                </div>
+              </div>
+            </Grid>
 
-        <ButtonCircle>
-          <AddIcon fontSize='small' />
-        </ButtonCircle>
-      </div>
-      <div className={styles.item__price}>
-        <b>770 $</b>
-      </div>
-      <div className={styles.item__remove}>
-        <ButtonCircle>
-          <CloseIcon fontSize='small' />
-        </ButtonCircle>
-      </div>
-    </div>
+            <Grid item xs={5}>
+              <div className={styles.item__countPriceWrapper}>
+                <div className={styles.item__count}>
+                  <ButtonCircle callback={minusProduct}>
+                    <RemoveIcon fontSize='small' />
+                  </ButtonCircle>
+
+                  <span>{count}</span>
+
+                  <ButtonCircle callback={plusProduct}>
+                    <AddIcon fontSize='small' />
+                  </ButtonCircle>
+                </div>
+                <p className={styles.item__price}>
+                  <span>{productPrice} $</span>
+                </p>
+              </div>
+            </Grid>
+
+            <Grid item xs={2}>
+              <div className={styles.item__remove}>
+                <ButtonCircle callback={removeProduct}>
+                  <CloseIcon fontSize='small' />
+                </ButtonCircle>
+              </div>
+            </Grid>
+          </Grid>
+        </div>
+      </motion.div>
+    </motion.div>
   );
-}
+};
 
 export default CartItem;

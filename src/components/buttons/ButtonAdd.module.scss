@@ -24,7 +24,7 @@
     text-transform: capitalize;
   }
 
-  i {
+  &__indicator {
     display: inline-block;
     border-radius: 30px;
     background-color: $blue;

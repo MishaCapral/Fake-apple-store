@@ -1,21 +1,44 @@
 @import '../../constants/variables.scss';
 
 .item {
-  display: flex;
   width: 100%;
   border-top: 2px solid $gray-line;
   padding-top: 30px;
   margin-top: 30px;
 
+  &__descriptionWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+
+  &__countPriceWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    @media (max-width: 600px) {
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  }
+
   &__img {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-right: 15px;
-    width: 10%;
+    @media (max-width: 600px) {
+      margin-right: 0px;
+    }
 
     img {
-      width: 80px;
-      height: 80px;
+      max-width: 80px;
+      max-height: 80px;
     }
   }
 
@@ -23,7 +46,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 40%;
+    width: 50%;
+    @media (max-width: 600px) {
+      text-align: center;
+      width: 100%;
+    }
 
     h3 {
       font-weight: bold;
@@ -42,20 +69,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 13%;
-
-    b {
+    span {
+      font-weight: bold;
+      padding-inline: 5px;
       font-size: 22px;
     }
   }
 
   &__price {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 33%;
-
-    b {
+    span {
       font-weight: bold;
       font-size: 22px;
       letter-spacing: 0.01em;
@@ -63,6 +85,7 @@
   }
 
   &__remove {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;

@@ -24,7 +24,8 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-
+    border: none;
+    background-color: transparent;
     span {
       display: inline-block;
       margin-left: 7px;
@@ -48,6 +49,9 @@
       span {
         color: darken($color: $gray-text, $amount: 50);
       }
+    }
+    &:active {
+      transform: translateY(1px);
     }
     &__items {
       display: block;
