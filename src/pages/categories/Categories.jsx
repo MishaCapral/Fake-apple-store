@@ -48,7 +48,7 @@ const Categories = () => {
     const order = sortId.sortProperty.includes('-') ? 'desc' : 'asc';
     const category = categoryId === 'All' ? '' : `category=${categoryId}`;
 
-    const search = debouncedInput ? `&search=${debouncedInput}` : '';
+    const search = debouncedInput ? `&title=${debouncedInput}` : '';
     const pagination = `&page=${page}&limit=6`;
     return { sortBy, order, category, search, pagination };
   }, [categoryId, page, debouncedInput, sortId]);

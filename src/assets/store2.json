@@ -24,7 +24,8 @@
         ]
       }
     ],
-    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 }
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 999
   },
 
   {
@@ -52,7 +53,8 @@
         ]
       }
     ],
-    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 }
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 800
   },
   {
     "id": "3",
@@ -79,7 +81,8 @@
         ]
       }
     ],
-    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 }
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 599
   },
   {
     "id": "4",
@@ -97,7 +100,8 @@
         ]
       }
     ],
-    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 }
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 429
   },
   {
     "id": "5",
@@ -124,7 +128,8 @@
         ]
       }
     ],
-    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 }
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 799
   },
   {
     "id": "6",
@@ -141,7 +146,8 @@
         ]
       }
     ],
-    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 }
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 599
   },
   {
     "id": "7",
@@ -168,7 +174,8 @@
         ]
       }
     ],
-    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 }
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 449
   },
   {
     "id": "8",
@@ -185,7 +192,8 @@
         ]
       }
     ],
-    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 }
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 449
   },
   {
     "id": "9",
@@ -210,7 +218,8 @@
         ]
       }
     ],
-    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 }
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 999
   },
   {
     "id": "10",
@@ -242,6 +251,7 @@
         ]
       }
     ],
-    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 }
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 1299
   }
 ]

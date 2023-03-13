@@ -17,6 +17,14 @@ const Sort = () => {
     setPopup();
   };
 
+  // * update URL when change category
+  useEffect(() => {
+    setSearchParams((searchParams) => {
+      searchParams.set('sort', sortId.sortProperty);
+      return searchParams;
+    });
+  }, [sortId, categoryId, setSearchParams]);
+
   // * Read query params from URL and update data
   useEffect(() => {
     const queryParams = searchParams.get('sort');
@@ -25,14 +33,6 @@ const Sort = () => {
     );
     queryParams && dispatch(setSortId(queryItem));
   }, [searchParams, sortList, dispatch]);
-
-  // * update URL when change category
-  useEffect(() => {
-    setSearchParams((searchParams) => {
-      searchParams.set('sort', sortId.sortProperty);
-      return searchParams;
-    });
-  }, [sortId, categoryId, setSearchParams]);
 
   return (
     <div className={styles.sort}>

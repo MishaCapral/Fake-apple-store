@@ -9,19 +9,19 @@ function PaginationBlock() {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // * update URL when change category
+  useEffect(() => {
+    setSearchParams((searchParams) => {
+      searchParams.set('page', page);
+      return searchParams;
+    });
+  }, [page, caregoryId, setSearchParams]);
+
   // * Read query params from URL and update data
   useEffect(() => {
-    const queryParams = searchParams.get('page');
+    const queryParams = +searchParams.get('page');
     queryParams && dispatch(setPage(queryParams));
   }, [searchParams, dispatch, page, caregoryId]);
-
-  // * update URL when change category
-  // useEffect(() => {
-  //   setSearchParams((searchParams) => {
-  //     searchParams.set('page', page);
-  //     return searchParams;
-  //   });
-  // }, [page, caregoryId, setSearchParams]);
 
   const handleChange = (event, value) => {
     dispatch(setPage(value));

@@ -5,8 +5,8 @@ const initialState = {
   categoryId: 'All',
   sortList: [
     { name: 'alphabet', sortProperty: 'alphabet' },
-    { name: 'price: low to high', sortProperty: 'price' },
-    { name: 'price: high to low', sortProperty: '-price' },
+    { name: 'price: low to high', sortProperty: 'minPrice' },
+    { name: 'price: high to low', sortProperty: '-minPrice' },
   ],
   sortId: {
     name: 'alphabet',
