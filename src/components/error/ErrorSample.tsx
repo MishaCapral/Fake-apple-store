@@ -1,7 +1,12 @@
+import React from 'react';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import styles from './ErrorSample.module.scss';
 
-function ErrorSample({ text }) {
+type ErrorSampleProps = {
+  text: string;
+};
+
+const ErrorSample: React.FC<ErrorSampleProps> = ({ text }) => {
   return (
     <div className={styles.error}>
       <h1>
@@ -15,6 +20,6 @@ function ErrorSample({ text }) {
       <p>{text}</p>
     </div>
   );
-}
+};
 
 export default ErrorSample;

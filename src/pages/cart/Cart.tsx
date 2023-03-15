@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion, useAnimationControls } from 'framer-motion';
 import styles from './Cart.module.scss';
@@ -11,14 +12,16 @@ import ButtonFillRectangle from '../../components/buttons/ButtonFillRectangle';
 import { clearAllProducts } from '../../redux/slices/cartSlice';
 import EmptyCart from '../../components/emptyCart/EmptyCart';
 
-const Cart = () => {
+const Cart: React.FC = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { products, totalPrice, totalCount } = useSelector(
-    (state) => state.cart,
+    (state: any) => state.cart,
   );
 
   const controls = useAnimationControls();
   const clearAll = () => {
+    //@ts-ignore
     setTimeout(() => dispatch(clearAllProducts()), 1100);
     controls.start({
       height: 0,
@@ -70,13 +73,10 @@ const Cart = () => {
           )}
 
           <div className={styles.cart__bottom__buttons}>
-            <Link to={-1}>
-              <ButtonOutlineRectangle>
-                <ArrowBackIosIcon fontSize='small' />
-                <span>Back</span>
-              </ButtonOutlineRectangle>
-            </Link>
-
+            <ButtonOutlineRectangle callback={() => navigate(-1)}>
+              <ArrowBackIosIcon fontSize='small' />
+              <span>Back</span>
+            </ButtonOutlineRectangle>
             <ButtonFillRectangle>
               <span>Pay now</span>
             </ButtonFillRectangle>

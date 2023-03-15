@@ -1,3 +1,4 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { useToggle } from 'react-use';
@@ -11,17 +12,17 @@ import ButtonAdd from '../../components/buttons/ButtonAdd';
 import CloseIcon from '@mui/icons-material/Close';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
-function ItemDetails() {
+const ItemDetails: React.FC = () => {
   let { id } = useParams();
   const [openModal, setOpenModal] = useToggle(false);
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 
   const dispatch = useDispatch();
-  const { items } = useSelector((state) => state.items);
+  const { items } = useSelector((state: any) => state.items);
 
   if (items.length === 0) {
-    async function fetchItem() {
+    const fetchItem = async () => {
       try {
         const item = await getItem(id);
         dispatch(setItem([item]));
@@ -30,10 +31,10 @@ function ItemDetails() {
         alert('something went wrong');
         <Navigate to='/' />;
       }
-    }
+    };
     fetchItem();
   }
-  const item = items.find((item) => item.id === id);
+  const item = items.find((item: any) => item.id === id);
 
   if (!item) {
     return (
@@ -89,6 +90,6 @@ function ItemDetails() {
       </Dialog>
     </div>
   );
-}
+};
 
 export default ItemDetails;
