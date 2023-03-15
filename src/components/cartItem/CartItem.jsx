@@ -13,16 +13,16 @@ import CloseIcon from '@mui/icons-material/Close';
 import ButtonCircle from '../buttons/ButtonCircle';
 
 const CartItem = ({ product }) => {
-  const { id, title, img, model, memory, productPrice, count } = product;
+  const { id, title, img, model, option, productPrice, count } = product;
 
   const dispatch = useDispatch();
 
-  const plusProduct = () => dispatch(addProduct({ id, memory, model }));
-  const minusProduct = () => dispatch(subtractProduct({ id, memory, model }));
+  const plusProduct = () => dispatch(addProduct({ id, option, model }));
+  const minusProduct = () => dispatch(subtractProduct({ id, option, model }));
 
   const controls = useAnimationControls();
   const removeProduct = () => {
-    setTimeout(() => dispatch(deleteProduct({ id, memory, model })), 800);
+    setTimeout(() => dispatch(deleteProduct({ id, option, model })), 800);
     controls.start({
       opacity: 0,
       height: 0,
@@ -50,7 +50,7 @@ const CartItem = ({ product }) => {
                 <div className={styles.item__info}>
                   <h3>{title}</h3>
                   <p>{model}</p>
-                  <p>{memory} GB</p>
+                  <p>{option}</p>
                 </div>
               </div>
             </Grid>

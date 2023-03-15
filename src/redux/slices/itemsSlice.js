@@ -15,16 +15,16 @@ const itemsSlice = createSlice({
     setItem: (state, action) => {
       state.items = action.payload
     },
-    setActiveVariant: (state, action) => {
+    setActiveModel: (state, action) => {
       const existingItems = JSON.parse(JSON.stringify(state.items));
       const item = existingItems.find(state => state.id === action.payload.id)
-      item.activeVariants.versionIndex = action.payload.newVersionIndex
+      item.activeVariants.modelIndex = action.payload.newModelIndex
       state.items = existingItems
     },
-    setActiveMemory: (state, action) => {
+    setActiveOption: (state, action) => {
       const existingItems = JSON.parse(JSON.stringify(state.items));
       const item = existingItems.find(state => state.id === action.payload.id)
-      item.activeVariants.memoryIndex = action.payload.newMemoryIndex
+      item.activeVariants.optionIndex = action.payload.newOptionIndex
       state.items = existingItems
     }
   },
@@ -45,6 +45,6 @@ const itemsSlice = createSlice({
   }
 })
 
-export const { setItems, setItem, setActiveVariant, setActiveMemory } = itemsSlice.actions
+export const { setItems, setItem, setActiveModel, setActiveOption } = itemsSlice.actions
 
 export default itemsSlice.reducer

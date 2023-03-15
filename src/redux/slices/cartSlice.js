@@ -17,7 +17,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, action) => {
-      const findItem = state.products.find(product => action.payload.id === product.id && action.payload.model === product.model && action.payload.memory === product.memory);
+      const findItem = state.products.find(product => action.payload.id === product.id && action.payload.model === product.model && action.payload.option === product.option);
 
       if (findItem) {
         findItem.count++
@@ -29,7 +29,7 @@ export const cartSlice = createSlice({
       updateTotalCount(state)
     },
     subtractProduct: (state, action) => {
-      const findItem = state.products.find(product => action.payload.id === product.id && action.payload.model === product.model && action.payload.memory === product.memory);
+      const findItem = state.products.find(product => action.payload.id === product.id && action.payload.model === product.model && action.payload.option === product.option);
 
       findItem.count > 1 && findItem.count--
       updateProductPrice(findItem)
@@ -38,7 +38,7 @@ export const cartSlice = createSlice({
 
     },
     deleteProduct: (state, action) => {
-      const findItem = state.products.find(product => action.payload.id === product.id && action.payload.model === product.model && action.payload.memory === product.memory);
+      const findItem = state.products.find(product => action.payload.id === product.id && action.payload.model === product.model && action.payload.option === product.option);
 
       const index = state.products.indexOf(findItem);
       state.products.splice(index, 1);

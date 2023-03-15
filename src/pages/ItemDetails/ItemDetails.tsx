@@ -8,7 +8,6 @@ import { CircularProgress, Dialog, DialogActions } from '@mui/material';
 import getItem from '../../api/getItem';
 import styles from './ItemDetails.module.scss';
 import InfoToggle from '../../components/infoToggle/InfoToggle';
-import ButtonAdd from '../../components/buttons/ButtonAdd';
 import CloseIcon from '@mui/icons-material/Close';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
@@ -60,23 +59,12 @@ const ItemDetails: React.FC = () => {
             {item.description}
           </p>
           <InfoToggle
-            id={id}
+            id={item.id}
+            title={item.title}
+            img={item.img}
             type={item.type}
             activeVariants={item.activeVariants}
           />
-
-          <div className={styles.infoContainer__bottom}>
-            <p className={styles.infoContainer__price}>
-              Price:{' '}
-              {
-                item.type[item.activeVariants.versionIndex].version[
-                  item.activeVariants.memoryIndex
-                ].price
-              }{' '}
-              $
-            </p>
-            <ButtonAdd />
-          </div>
         </div>
       </div>
 

@@ -67,7 +67,6 @@ const Categories: React.FC = () => {
                     id={item.id}
                     category={item.category}
                     title={item.title}
-                    subtitle={item?.subtitle}
                     img={item.img}
                     type={item.type}
                     activeVariants={item.activeVariants}
