@@ -1,54 +1,463 @@
 @import '../../constants/variables.scss';
-
-.container {
-  width: $container-width;
-  margin: 0 auto;
+@keyframes fade-in-hero {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
-.content {
-  padding: 40px 0;
+.home h1,
+h2,
+h3,
+h4,
+p,
+span,
+div {
+  font-family: 'Inter';
+}
 
-  &__title {
-    margin: 35px 0;
+.ribbon {
+  text-align: center;
+  padding-inline: 60px;
+  padding-block: 16px;
+  color: $text-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $graphite;
+}
+
+// ---------- button apple store ----------
+.buttonWrapper {
+  position: fixed;
+  z-index: 5;
+  left: 7px;
+  @media (min-width: 760px) {
+    top: 7px;
+  }
+}
+.storeButton {
+  color: $text-white;
+  background-color: transparent;
+  border: 2px solid $text-white;
+  border-radius: 100px;
+  padding: 6px 6px;
+  cursor: pointer;
+  svg {
+    transform: translateY(5px);
+  }
+}
+
+// ---------- section Hero ----------
+.sectionHero {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 690px;
+
+  video {
+    transform: translateX(80px);
+    @media (max-width: 760px) {
+      transform: translateX(40px);
+    }
   }
 
-  &__items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-
-    @media (max-width: 1200px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: 740px) {
-      grid-template-columns: repeat(1, 1fr);
-    }
+  h1 {
+    color: $text-white;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    animation: fade-in-hero ease-out 2s 1 forwards;
   }
-
-  &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    @media (max-width: 1100px) {
-      flex-direction: column;
-      gap: 10px;
-    }
+  h2 {
+    padding-top: 20px;
+    padding-bottom: 12px;
+    min-height: 80px;
+    font-size: 68px;
+    background: linear-gradient(#eff1ff, #000);
+    background-size: 100% 200%;
+    background-position: 50% 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    animation: fade-in-hero ease-out 2s 1 forwards;
   }
-
-  &__error {
-    margin-top: 100px;
-    margin-bottom: 100px;
+  p {
+    color: $text-graphite;
+    font-size: 28px;
+    line-height: 1.28583;
+    font-weight: 500;
+    animation: fade-in-hero ease-out 2s 1 forwards;
+  }
+  &__callout {
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: fade-in-hero ease-out 2s 1 forwards;
+
+    @media (max-width: 760px) {
+      display: block;
+    }
+    p {
+      font-size: 24px;
+    }
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    font-size: 24px;
+    color: $white;
+    animation: fade-in-hero ease-out 2s 1 forwards;
+    li:nth-child(n + 2)::before {
+      content: '|';
+      padding: 0 30px;
+      @media (max-width: 760px) {
+        display: none;
+      }
+    }
+    svg {
+      transform: translateY(3px);
+      color: $white;
+    }
+    span {
+      color: $white;
+    }
+    a:hover span {
+      border-bottom: 1px solid $white;
+      padding-bottom: 0px;
+    }
+    @media (max-width: 760px) {
+      display: block;
+    }
+  }
+  &__animation {
+    animation: fade-in-hero 1.5s ease-out 2s 1 forwards;
+  }
+  @media (max-width: 760px) {
+    width: 340px;
   }
 }
 
-.pagination {
+// ---------- section M1Chip ----------
+.sectionM1Chip {
+  margin-left: auto;
+  margin-right: auto;
+  width: 690px;
+  padding-top: 170px;
+  &__img {
+    width: 130px;
+    height: 60px;
+  }
+  &__headerline {
+    margin-top: 5px;
+    color: $text-white;
+    font-size: 62px;
+    line-height: 1.0625;
+    font-weight: 700;
+  }
+  &__description {
+    padding-top: 10px;
+    padding-right: 10px;
+    color: $text-graphite;
+    font-size: 24px;
+    line-height: 1.16667;
+    font-weight: 500;
+  }
+
+  @media (max-width: 760px) {
+    width: 340px;
+  }
+}
+
+// ---------- cards ----------
+.cards {
+  margin-top: 120px;
+  display: grid;
+  gap: 20px;
+}
+
+// ---------- card Cpu ----------
+.cardCpu {
+  background: linear-gradient(
+    to right top,
+    #194189 0%,
+    #3b4980 25%,
+    #8738a7 100%
+  );
+  border-radius: 10px;
+  min-height: 680px;
+  margin-inline: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (max-width: 760px) {
+    max-width: 400px;
+    height: 1000px;
+  }
+  &__container {
+    display: flex;
+    @media (max-width: 760px) {
+      flex-direction: column;
+    }
+  }
+  &__textContent {
+    padding-inline: 40px;
+    padding-bottom: 20px;
+  }
+  &__logo {
+    padding-top: 40px;
+    padding-left: 40px;
+    color: $text-white;
+  }
+  &__headerline {
+    font-size: 62px;
+    color: $text-white;
+    line-height: 1.0625;
+    font-weight: 700;
+    min-width: 380px;
+    @media (max-width: 760px) {
+      min-width: 100px;
+    }
+    span {
+      color: $text-purple;
+    }
+  }
+  &__description {
+    padding-top: 25px;
+    color: $text-white;
+    font-size: 19px;
+    font-weight: 600;
+    max-width: 400px;
+  }
+  &__img {
+    @media (max-width: 760px) {
+      max-width: 310px;
+      transform: translateX(20px);
+    }
+  }
+}
+
+// ---------- card Gpu ----------
+.cardGpu {
+  position: relative;
+  border-radius: 10px;
+  min-height: 680px;
+  margin-inline: 20px;
+  display: flex;
+  @media (max-width: 760px) {
+    max-width: 400px;
+    height: 1000px;
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    z-index: 0;
+  }
+
+  &__container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    max-height: 100%;
+  }
+
+  &__logo {
+    padding-top: 40px;
+    padding-left: 40px;
+    color: $text-white;
+  }
+
+  &__textContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+    @media (max-width: 760px) {
+      flex-direction: column;
+    }
+  }
+
+  &__headerline {
+    padding-inline: 40px;
+    font-size: 64px;
+    color: $text-white;
+    line-height: 1.0625;
+    font-weight: 700;
+    min-width: 380px;
+    width: 70%;
+    span {
+      color: $text-blue;
+    }
+    p {
+      max-width: 600px;
+    }
+  }
+
+  &__description {
+    padding-inline: 40px;
+    padding-top: 25px;
+    color: $text-white;
+    font-size: 19px;
+    font-weight: 600;
+    max-width: 600px;
+  }
+}
+
+// ---------- card flex ----------
+.cardFlex {
+  margin-inline: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-around;
+  div {
+    min-height: 680px;
+    border-radius: 10px;
+    width: 100%;
+  }
+  h3 {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: $text-white;
+    font-size: 21px;
+    font-weight: 500;
+  }
+  p,
+  span {
+    font-size: 64px;
+    line-height: 1.0625;
+    font-weight: 700;
+  }
+  @media (max-width: 760px) {
+    flex-direction: column;
+  }
+}
+
+// ---------- card battery ----------
+.cardBattery {
+  position: relative;
+  background: linear-gradient(to bottom, #203025 0%, #151516 100%);
   display: flex;
   justify-content: center;
+  align-items: center;
+  p {
+    text-align: center;
+    display: block;
+    background: linear-gradient(to top, #4cd265 50%, #fff 50%);
+    background-size: 100% 200%;
+    background-position: 50% 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px;
+    max-width: 500px;
+
+    animation: battery-fillup 1.5s linear forwards;
+  }
+  @media (max-width: 760px) {
+    max-width: 400px;
+  }
+}
+
+// ---------- card thermal ----------
+.cardThermal {
+  position: relative;
+  background: linear-gradient(
+    225deg,
+    #1623a6 0%,
+    #3343d4 29%,
+    #175eac 73%,
+    #176682 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+
+  p {
+    color: $text-white;
+  }
+  span {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  button {
+    position: absolute;
+    color: $text-white;
+    bottom: 30px;
+    left: 30px;
+    background-color: transparent;
+    border: 2px solid $text-white;
+    border-radius: 100px;
+    padding: 9px 17px;
+    font-weight: 600;
+    white-space: normal;
+    cursor: pointer;
+  }
+}
+
+// ---------- section dispaly ----------
+.sectionDisplay {
+  margin-left: auto;
+  margin-right: auto;
+  width: 690px;
+  padding-top: 170px;
+
+  &__headerline {
+    font-size: 64px;
+    color: $text-graphite;
+    line-height: 1.0625;
+    font-weight: 700;
+  }
+
+  &__secondHeaderline {
+    font-size: 64px;
+    color: $text-white;
+    line-height: 1.0625;
+    font-weight: 700;
+  }
+
+  &__description {
+    padding-top: 10px;
+    padding-right: 10px;
+    color: $text-graphite;
+    font-size: 24px;
+    line-height: 1.16667;
+    font-weight: 500;
+  }
+
+  &__img {
+    width: 100%;
+    padding-top: 40px;
+  }
+
+  @media (max-width: 760px) {
+    width: 340px;
+  }
 }

@@ -12,9 +12,18 @@ body {
   margin: 50px auto;
   border-radius: 10px;
   max-width: 1400px;
+  @media (max-width: 760px) {
+    width: calc(100vw - 40px);
+    margin: 20px auto;
+  }
 }
 
 .content {
   padding: 20px 0;
   min-height: 70vh;
+}
+
+.wrapperHome {
+  background-color: $background-black;
+  height: 100%;
 }

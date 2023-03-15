@@ -1,0 +1,257 @@
+[
+  {
+    "id": "1",
+    "category": "IPhone",
+    "title": "iPhone 14 Pro",
+    "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.",
+    "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone14pro-202209?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1663611329492",
+    "type": [
+      {
+        "model": "14 Pro",
+        "version": [
+          { "memory": 128, "price": 999 },
+          { "memory": 256, "price": 1099 },
+          { "memory": 512, "price": 1299 }
+        ]
+      },
+
+      {
+        "model": "14 Pro Max",
+        "version": [
+          { "memory": 128, "price": 1099 },
+          { "memory": 256, "price": 1299 },
+          { "memory": 512, "price": 1399 }
+        ]
+      }
+    ],
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 999
+  },
+
+  {
+    "id": "2",
+    "category": "IPhone",
+    "title": "iPhone 14",
+    "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.",
+    "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone14-202209?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1661958160674",
+    "type": [
+      {
+        "model": "14",
+        "version": [
+          { "memory": 128, "price": 800 },
+          { "memory": 256, "price": 899 },
+          { "memory": 512, "price": 1000 }
+        ]
+      },
+
+      {
+        "model": "14 Plus",
+        "version": [
+          { "memory": 128, "price": 900 },
+          { "memory": 256, "price": 1100 },
+          { "memory": 512, "price": 1300 }
+        ]
+      }
+    ],
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 800
+  },
+  {
+    "id": "3",
+    "category": "IPhone",
+    "title": "iPhone 13",
+    "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.",
+    "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone13-202209?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1661958176452",
+    "type": [
+      {
+        "model": "13 mini",
+        "version": [
+          { "memory": 128, "price": 599 },
+          { "memory": 256, "price": 699 },
+          { "memory": 512, "price": 800 }
+        ]
+      },
+
+      {
+        "model": "13",
+        "version": [
+          { "memory": 128, "price": 700 },
+          { "memory": 256, "price": 800 },
+          { "memory": 512, "price": 899 }
+        ]
+      }
+    ],
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 599
+  },
+  {
+    "id": "4",
+    "category": "IPhone",
+    "title": "iPhone SE",
+    "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.",
+    "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphonese-202203?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1646415838921",
+    "type": [
+      {
+        "model": "SE",
+        "version": [
+          { "memory": 128, "price": 429 },
+          { "memory": 256, "price": 500 },
+          { "memory": 512, "price": 630 }
+        ]
+      }
+    ],
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 429
+  },
+  {
+    "id": "5",
+    "category": "IPad",
+    "title": "iPad Pro",
+    "description": "The ultimate iPad experience with the most advanced technology. Serious performance in a thin and light design. All the essentials in the most affordable iPad.",
+    "img": "https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_pro__erf9x8mw04sy_large.png",
+    "type": [
+      {
+        "model": "11-inch display",
+        "version": [
+          { "memory": 128, "price": 799 },
+          { "memory": 256, "price": 899 },
+          { "memory": 512, "price": 1000 }
+        ]
+      },
+
+      {
+        "model": "12.9-inch display",
+        "version": [
+          { "memory": 128, "price": 900 },
+          { "memory": 256, "price": 999 },
+          { "memory": 512, "price": 1100 }
+        ]
+      }
+    ],
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 799
+  },
+  {
+    "id": "6",
+    "category": "IPad",
+    "title": "iPad Air",
+    "description": "The ultimate iPad experience with the most advanced technology. Serious performance in a thin and light design. All the essentials in the most affordable iPad.",
+    "img": "https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_air__bxjv33pk6nte_large.png",
+    "type": [
+      {
+        "model": "11-inch display",
+        "version": [
+          { "memory": 64, "price": 599 },
+          { "memory": 256, "price": 699 }
+        ]
+      }
+    ],
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 599
+  },
+  {
+    "id": "7",
+    "category": "IPad",
+    "title": "iPad",
+    "description": "The ultimate iPad experience with the most advanced technology. Serious performance in a thin and light design. All the essentials in the most affordable iPad.",
+    "img": "https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_10_9__f7p2wja0gwuy_large.png",
+    "type": [
+      {
+        "model": "9th generation",
+        "version": [
+          { "memory": 128, "price": 449 },
+          { "memory": 256, "price": 559 },
+          { "memory": 512, "price": 700 }
+        ]
+      },
+
+      {
+        "model": "10th generation",
+        "version": [
+          { "memory": 128, "price": 530 },
+          { "memory": 256, "price": 630 },
+          { "memory": 512, "price": 800 }
+        ]
+      }
+    ],
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 449
+  },
+  {
+    "id": "8",
+    "category": "IPad",
+    "title": "iPad mini",
+    "description": "The ultimate iPad experience with the most advanced technology. Serious performance in a thin and light design. All the essentials in the most affordable iPad.",
+    "img": "https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_mini__czcsk9ukpeie_large.png",
+    "type": [
+      {
+        "model": "mini",
+        "version": [
+          { "memory": 64, "price": 449 },
+          { "memory": 256, "price": 529 }
+        ]
+      }
+    ],
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 449
+  },
+  {
+    "id": "9",
+    "category": "Mac",
+    "title": "MacBook Air",
+    "description": "Power. Its in the Air. MacBook Air with M1 is an incredibly portable laptop — its nimble and quick, with a silent, fanless design and a beautiful Retina display. Thanks to its slim profile and all-day battery life, this Air moves at the speed of lightness.",
+    "img": "https://www.apple.com/v/mac/home/bs/images/overview/compare/compare_mba__fchj615oz0yi_large.png",
+    "type": [
+      {
+        "model": "M1 chip",
+        "version": [
+          { "memory": 256, "price": 999 },
+          { "memory": 512, "price": 1099 }
+        ]
+      },
+
+      {
+        "model": "M2 chip",
+        "version": [
+          { "memory": 256, "price": 1099 },
+          { "memory": 512, "price": 1299 }
+        ]
+      }
+    ],
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 999
+  },
+  {
+    "id": "10",
+    "category": "Mac",
+    "title": "MacBook Pro",
+    "description": "Pro anywhere.The new M2 chip makes the 13-inch MacBook Pro more capable than ever. The same compact design supports up to 20 hours of battery life1 and an active cooling system to sustain enhanced performance. Featuring a brilliant Retina display, a FaceTime HD camera, and studio-quality mics, its our most portable pro laptop.",
+    "img": "https://www.apple.com/v/mac/home/bs/images/overview/compare/compare_mbp13__euj5z15300om_large.png",
+    "type": [
+      {
+        "model": "13-inch display",
+        "version": [
+          { "memory": 256, "price": 1299 },
+          { "memory": 512, "price": 1399 }
+        ]
+      },
+
+      {
+        "model": "14-inch display",
+        "version": [
+          { "memory": 256, "price": 1399 },
+          { "memory": 512, "price": 1499 }
+        ]
+      },
+      {
+        "model": "16-inch display",
+        "version": [
+          { "memory": 256, "price": 1599 },
+          { "memory": 512, "price": 1699 }
+        ]
+      }
+    ],
+    "activeVariants": { "memoryIndex": 0, "versionIndex": 0 },
+    "minPrice": 1299
+  }
+]
