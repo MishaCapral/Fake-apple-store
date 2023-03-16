@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import { setPage } from '../../redux/slices/filterSlice';
 
 function PaginationBlock() {
-  const { page, caregoryId } = useSelector((state) => state.filter);
+  const { page, caregoryId } = useSelector((state: any) => state.filter);
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -19,11 +19,11 @@ function PaginationBlock() {
 
   // * Read query params from URL and update data
   useEffect(() => {
-    const queryParams = +searchParams.get('page');
-    queryParams && dispatch(setPage(queryParams));
+    const queryParams = searchParams.get('page');
+    queryParams && dispatch(setPage(+queryParams));
   }, [searchParams, dispatch, page, caregoryId]);
 
-  const handleChange = (event, value) => {
+  const handleChange = (_, value) => {
     dispatch(setPage(value));
   };
   return (

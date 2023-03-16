@@ -1,11 +1,17 @@
 import { createContext, useContext, useState } from 'react';
 import { useDebounce } from 'react-use';
 
-type Children = {
+type ChildrenType = {
   children: JSX.Element;
 };
 
-const searchContext = createContext('');
+type FavoriteContextType = {
+  input?: string;
+  setInput?: any;
+  debouncedInput?: string;
+};
+
+const searchContext = createContext<FavoriteContextType | null>(null);
 
 // use like useContext -> const { input, setInput } = useFavoriteContext();
 export const useFavoriteContext = () => {
@@ -17,7 +23,7 @@ export const useFavoriteContext = () => {
 };
 
 // use like Provider -> <SearchContextProvider> ... </SearchContextProvider>
-const SearchContextProvider = ({ children }: Children) => {
+const SearchContextProvider: React.FC<ChildrenType> = ({ children }) => {
   const [input, setInput] = useState('');
   const [debouncedInput, setDebouncedInput] = useState('');
   useDebounce(
@@ -28,7 +34,7 @@ const SearchContextProvider = ({ children }: Children) => {
     [input],
   );
 
-  const value: any = { input, setInput, debouncedInput };
+  const value: FavoriteContextType = { input, setInput, debouncedInput };
 
   return (
     <searchContext.Provider value={value}>{children}</searchContext.Provider>

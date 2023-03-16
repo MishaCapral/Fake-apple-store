@@ -1,12 +1,13 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import { setCategoryId } from '../../redux/slices/filterSlice';
 import styles from './Categories.module.scss';
 
-const CategoriesButtons = () => {
+const CategoriesButtons: React.FC = () => {
   const { category } = useParams();
-  const { categories } = useSelector((state) => state.filter);
+  const { categories } = useSelector((state: any) => state.filter);
   const dispatch = useDispatch();
 
   useEffect(() => {

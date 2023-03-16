@@ -1,7 +1,8 @@
+import React from 'react';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import styles from './EmptyCart.module.scss';
 
-const EmptyCart = () => {
+const EmptyCart: React.FC = () => {
   return (
     <div className={styles.emptyCart}>
       <div className={styles.emptyCart__iconWrapper}>

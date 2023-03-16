@@ -1,3 +1,4 @@
+import React from 'react';
 import { useToggle } from 'react-use';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import styles from './Sort.module.scss';
@@ -6,8 +7,10 @@ import { setSortId } from '../../redux/slices/filterSlice';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const Sort = () => {
-  const { sortId, sortList, categoryId } = useSelector((state) => state.filter);
+const Sort: React.FC = () => {
+  const { sortId, sortList, categoryId } = useSelector(
+    (state: any) => state.filter,
+  );
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const [popup, setPopup] = useToggle(false);

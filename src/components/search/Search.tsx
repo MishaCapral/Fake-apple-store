@@ -1,16 +1,18 @@
+import React from 'react';
 import { useRef } from 'react';
 import { useFavoriteContext } from '../../context/SearchContext';
 import styles from './Search.module.scss';
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 
-const Search = () => {
+const Search: React.FC = () => {
+  //@ts-ignore
   const { input, setInput } = useFavoriteContext();
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const clearInput = () => {
     setInput('');
-    inputRef.current.focus();
+    inputRef.current?.focus();
   };
 
   return (
