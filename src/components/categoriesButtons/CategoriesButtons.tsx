@@ -1,14 +1,22 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { setCategoryId } from '../../redux/slices/filterSlice';
 import styles from './Categories.module.scss';
+import { Swiper, SwiperSlide } from 'swiper/react';
+//import { Navigation } from 'swiper';
+import { Swiper as SwiperType, Navigation } from 'swiper';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import 'swiper/css';
+//import 'swiper/css/navigation';
 
 const CategoriesButtons: React.FC = () => {
   const { category } = useParams();
   const { categories } = useSelector((state: any) => state.filter);
   const dispatch = useDispatch();
+
+  const swiperRef = useRef<SwiperType>();
 
   useEffect(() => {
     dispatch(setCategoryId(category));
@@ -16,15 +24,50 @@ const CategoriesButtons: React.FC = () => {
 
   return (
     <div className={styles.categories}>
-      {categories.map((categoryItem, index) => (
-        <NavLink
-          key={index}
-          to={`/${categoryItem}`}
-          className={styles.categories__button}
-        >
-          {categoryItem}
-        </NavLink>
-      ))}
+      <button onClick={() => swiperRef.current?.slidePrev()}>
+        <ArrowForwardIosIcon />
+      </button>
+
+      <Swiper
+        slidesPerView={2}
+        spaceBetween={15}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Navigation]}
+        onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        breakpoints={{
+          740: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        }}
+        className={styles.categories__swiper}
+      >
+        {categories.map((categoryItem, index) => (
+          <SwiperSlide
+            key={index}
+            className={
+              category === categoryItem
+                ? styles.categories__categoryActiveLink
+                : styles.categories__categoryLink
+            }
+          >
+            <Link
+              className={styles.categories__categoryNavLink}
+              to={`/${categoryItem}`}
+            >
+              {categoryItem}
+            </Link>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <button onClick={() => swiperRef.current?.slideNext()}>
+        <ArrowForwardIosIcon />
+      </button>
     </div>
   );
 };
