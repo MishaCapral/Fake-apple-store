@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion, useAnimationControls } from 'framer-motion';
+import { Dialog, DialogActions } from '@mui/material';
+import { useToggle } from 'react-use';
 import styles from './Cart.module.scss';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -18,9 +20,12 @@ const Cart: React.FC = () => {
   const { products, totalPrice, totalCount } = useSelector(
     (state: any) => state.cart,
   );
+  const [openModal, setOpenModal] = useToggle(false);
 
   const controls = useAnimationControls();
+
   const clearAll = () => {
+    setOpenModal();
     //@ts-ignore
     setTimeout(() => dispatch(clearAllProducts()), 1100);
     controls.start({
@@ -43,7 +48,7 @@ const Cart: React.FC = () => {
                 <ShoppingCartIcon />
                 Bucket
               </h2>
-              <button onClick={clearAll} className={styles.cart__clear}>
+              <button onClick={setOpenModal} className={styles.cart__clear}>
                 <DeleteIcon />
                 <span>clear</span>
               </button>
@@ -83,6 +88,21 @@ const Cart: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <Dialog open={openModal} onClose={setOpenModal}>
+        <div className={styles.modal}>
+          <p>Are you sure you want to empty your shopping cart?</p>
+
+          <DialogActions sx={{ justifyContent: 'space-around' }}>
+            <ButtonOutlineRectangle callback={clearAll}>
+              <span>yes</span>
+            </ButtonOutlineRectangle>
+            <ButtonOutlineRectangle callback={setOpenModal}>
+              <span>no</span>
+            </ButtonOutlineRectangle>
+          </DialogActions>
+        </div>
+      </Dialog>
     </div>
   );
 };

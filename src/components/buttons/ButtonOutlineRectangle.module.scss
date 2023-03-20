@@ -6,7 +6,7 @@
   justify-content: center;
   width: 160px;
   height: 43px;
-  border: 2px solid $blue;
+  border: 2px solid $black;
   border-radius: 20px;
   cursor: pointer;
   transition: background-color $duration ease-in-out;
@@ -15,11 +15,11 @@
   span,
   path,
   svg {
-    color: $blue;
+    color: $black;
   }
 
   &:hover {
-    background-color: $blue;
+    background-color: $black;
     span,
     path,
     svg {
@@ -28,7 +28,7 @@
   }
 
   &:active {
-    background-color: darken($color: $blue, $amount: 10);
+    background-color: darken($color: $black, $amount: 10);
     transform: translateY(1px);
   }
 }
