@@ -31,11 +31,11 @@ export const filterSlice = createSlice({
     setSortId: (state, action: PayloadAction<sortIdType>) => {
       state.sortId = action.payload;
     },
-    setSearchParams: (state, action) => {
-      console.log(action.payload.category);
-      state.categoryId = action.payload.category;
-      state.sortId = action.payload.sort;
-    },
+    // setSearchParams: (state, action) => {
+    //   console.log(action.payload.category);
+    //   state.categoryId = action.payload.category;
+    //   state.sortId = action.payload.sort;
+    // },
     setPage: (state, action: PayloadAction<number>) => {
       state.page = Number(action.payload);
     },
@@ -43,7 +43,6 @@ export const filterSlice = createSlice({
 });
 
 export const selectFilter = (state: RootState) => state.filter;
-export const { setCategoryId, setSortId, setSearchParams, setPage } =
-  filterSlice.actions;
+export const { setCategoryId, setSortId, setPage } = filterSlice.actions;
 
 export default filterSlice.reducer;

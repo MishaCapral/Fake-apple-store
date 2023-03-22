@@ -6,6 +6,7 @@ import {
   deleteProduct,
   ProductType,
 } from '../../redux/slices/cartSlice';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import styles from './CartItem.module.scss';
 import AddIcon from '@mui/icons-material/Add';
@@ -14,7 +15,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import ButtonCircle from '../buttons/ButtonCircle';
 
 const CartItem = ({ product }) => {
-  const { id, title, img, model, option, productPrice, count } =
+  const { id, title, img, model, option, productPrice, count, category } =
     product as ProductType;
 
   const dispatch = useDispatch();
@@ -46,11 +47,16 @@ const CartItem = ({ product }) => {
             <Grid item xs={5}>
               <div className={styles.item__descriptionWrapper}>
                 <div className={styles.item__img}>
-                  <img src={img} alt='cart product' />
+                  <Link to={`/${category}/${id}`}>
+                    <img src={img} alt='cart product' />
+                  </Link>
                 </div>
 
                 <div className={styles.item__info}>
-                  <h3>{title}</h3>
+                  <Link to={`/${category}/${id}`}>
+                    <h3>{title}</h3>
+                  </Link>
+
                   <p>{model}</p>
                   <p>{option}</p>
                 </div>

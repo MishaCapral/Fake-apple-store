@@ -11,6 +11,7 @@ export type ProductType = {
   option: string;
   price: number;
   title: string;
+  category: string;
 };
 
 export type ItemForCartType = {

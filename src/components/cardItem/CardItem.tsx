@@ -40,6 +40,7 @@ const CardItem: React.FC<CardItemProps> = ({
           activeVariants={activeVariants}
           title={title}
           img={img}
+          category={category}
         />
       </div>
     </div>

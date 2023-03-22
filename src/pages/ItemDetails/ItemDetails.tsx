@@ -12,7 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 const ItemDetails: React.FC = () => {
-  let { id } = useParams();
+  let { id, category } = useParams();
   const [openModal, setOpenModal] = useToggle(false);
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
@@ -65,6 +65,7 @@ const ItemDetails: React.FC = () => {
             img={item.img}
             type={item.type}
             activeVariants={item.activeVariants}
+            category={category!}
           />
         </div>
       </div>

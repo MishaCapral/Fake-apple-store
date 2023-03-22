@@ -5,7 +5,7 @@ import {
   TypeItemType,
   ActiveVariantsType,
 } from '../../redux/slices/itemsSlice';
-import { addProduct } from '../../redux/slices/cartSlice';
+import { addProduct, selectCart } from '../../redux/slices/cartSlice';
 import styles from './InfoToggle.module.scss';
 import ButtonAdd from '../buttons/ButtonAdd';
 
@@ -14,6 +14,7 @@ interface InfoToggleInterface {
   type: TypeItemType[];
   title: string;
   img: string;
+  category: string;
   activeVariants: ActiveVariantsType;
 }
 export type ActiveModelType = {
@@ -30,10 +31,11 @@ const InfoToggle = ({
   type,
   title,
   img,
+  category,
   activeVariants,
 }: InfoToggleInterface) => {
   const dispatch = useDispatch();
-  const { products } = useSelector((state: any) => state.cart);
+  const { products } = useSelector(selectCart);
 
   const setModel = (index: number, id: string) => {
     dispatch(
@@ -64,6 +66,7 @@ const InfoToggle = ({
     price,
     model,
     option,
+    category,
   };
   const addItem = () => {
     dispatch(addProduct(itemForCart));
