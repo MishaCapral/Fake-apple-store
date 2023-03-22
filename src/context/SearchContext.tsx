@@ -5,10 +5,10 @@ type ChildrenType = {
   children: JSX.Element;
 };
 
-type FavoriteContextType = {
-  input?: string;
-  setInput?: any;
-  debouncedInput?: string;
+export type FavoriteContextType = {
+  input: string;
+  setInput: (param: string) => void;
+  debouncedInput: string;
 };
 
 const searchContext = createContext<FavoriteContextType | null>(null);

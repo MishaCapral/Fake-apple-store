@@ -2,24 +2,24 @@ import React from 'react';
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { setCategoryId } from '../../redux/slices/filterSlice';
+import { selectFilter, setCategoryId } from '../../redux/slices/filterSlice';
 import styles from './Categories.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-//import { Navigation } from 'swiper';
 import { Swiper as SwiperType, Navigation } from 'swiper';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import 'swiper/css';
-//import 'swiper/css/navigation';
 
 const CategoriesButtons: React.FC = () => {
   const { category } = useParams();
-  const { categories } = useSelector((state: any) => state.filter);
+  const { categories } = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   const swiperRef = useRef<SwiperType>();
 
   useEffect(() => {
-    dispatch(setCategoryId(category));
+    if (category) {
+      dispatch(setCategoryId(category));
+    }
   }, [category, dispatch]);
 
   return (

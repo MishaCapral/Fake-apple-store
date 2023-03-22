@@ -4,6 +4,7 @@ import {
   addProduct,
   subtractProduct,
   deleteProduct,
+  ProductType,
 } from '../../redux/slices/cartSlice';
 import Grid from '@mui/material/Grid';
 import styles from './CartItem.module.scss';
@@ -13,7 +14,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import ButtonCircle from '../buttons/ButtonCircle';
 
 const CartItem = ({ product }) => {
-  const { id, title, img, model, option, productPrice, count } = product;
+  const { id, title, img, model, option, productPrice, count } =
+    product as ProductType;
 
   const dispatch = useDispatch();
 

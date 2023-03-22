@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { motion, useAnimationControls } from 'framer-motion';
 import { Dialog, DialogActions } from '@mui/material';
 import { useToggle } from 'react-use';
+import { clearAllProducts, selectCart } from '../../redux/slices/cartSlice';
 import styles from './Cart.module.scss';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -11,22 +12,20 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import CartItem from '../../components/cartItem/CartItem';
 import ButtonOutlineRectangle from '../../components/buttons/ButtonOutlineRectangle';
 import ButtonFillRectangle from '../../components/buttons/ButtonFillRectangle';
-import { clearAllProducts } from '../../redux/slices/cartSlice';
 import EmptyCart from '../../components/emptyCart/EmptyCart';
 
 const Cart: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { products, totalPrice, totalCount } = useSelector(
-    (state: any) => state.cart,
-  );
+  const { products, totalPrice, totalCount } = useSelector(selectCart);
+
   const [openModal, setOpenModal] = useToggle(false);
 
   const controls = useAnimationControls();
 
   const clearAll = () => {
     setOpenModal();
-    //@ts-ignore
+
     setTimeout(() => dispatch(clearAllProducts()), 1100);
     controls.start({
       height: 0,

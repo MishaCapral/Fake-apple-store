@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { useToggle } from 'react-use';
 import { useNavigate, useParams } from 'react-router';
-import { setItem } from '../../redux/slices/itemsSlice';
+import { selectItems, setItem } from '../../redux/slices/itemsSlice';
 import { CircularProgress, Dialog, DialogActions } from '@mui/material';
 import getItem from '../../api/getItem';
 import styles from './ItemDetails.module.scss';
@@ -18,8 +18,9 @@ const ItemDetails: React.FC = () => {
   const goBack = () => navigate(-1);
 
   const dispatch = useDispatch();
-  const { items } = useSelector((state: any) => state.items);
+  const { items } = useSelector(selectItems);
 
+  //--------- not typified ---------
   if (items.length === 0) {
     const fetchItem = async () => {
       try {
@@ -33,7 +34,7 @@ const ItemDetails: React.FC = () => {
     };
     fetchItem();
   }
-  const item = items.find((item: any) => item.id === id);
+  const item = items.find((item) => item.id === id);
 
   if (!item) {
     return (

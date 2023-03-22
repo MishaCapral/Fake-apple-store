@@ -1,8 +1,14 @@
 import React from 'react';
 import { useCallback, useLayoutEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getItems } from '../../api/getItems';
-import { useFavoriteContext } from '../../context/SearchContext';
+import {
+  FavoriteContextType,
+  useFavoriteContext,
+} from '../../context/SearchContext';
+import { selectItems } from '../../redux/slices/itemsSlice';
+import { selectFilter } from '../../redux/slices/filterSlice';
+import { useAppDispatch } from '../../redux/store';
 import CardItem from '../../components/cardItem/CardItem';
 import SkeletonItem from '../../components/cardItem/Skeleton';
 import CategoriesButtons from '../../components/categoriesButtons/CategoriesButtons';
@@ -12,15 +18,11 @@ import styles from './Categories.module.scss';
 import ErrorSample from '../../components/error/ErrorSample';
 
 const Categories: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const { items, status } = useSelector(selectItems);
+  const { categoryId, sortId, page } = useSelector(selectFilter);
 
-  const { items, status } = useSelector((state: any) => state.items);
-  const { categoryId, sortId, page } = useSelector(
-    (state: any) => state.filter,
-  );
-
-  //@ts-ignore
-  const { debouncedInput } = useFavoriteContext();
+  const { debouncedInput } = useFavoriteContext() as FavoriteContextType;
 
   const getProperties = useCallback(() => {
     const sortBy = sortId.sortProperty.replace('-', '');
@@ -35,7 +37,7 @@ const Categories: React.FC = () => {
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
-    //@ts-ignore
+
     dispatch(getItems(getProperties()));
   }, [getProperties, dispatch]);
 

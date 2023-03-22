@@ -3,14 +3,12 @@ import { useToggle } from 'react-use';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import styles from './Sort.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSortId } from '../../redux/slices/filterSlice';
+import { selectFilter, setSortId } from '../../redux/slices/filterSlice';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const Sort: React.FC = () => {
-  const { sortId, sortList, categoryId } = useSelector(
-    (state: any) => state.filter,
-  );
+  const { sortId, sortList, categoryId } = useSelector(selectFilter);
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const [popup, setPopup] = useToggle(false);
@@ -34,7 +32,7 @@ const Sort: React.FC = () => {
     const queryItem = sortList.find(
       (item) => item.sortProperty === queryParams,
     );
-    queryParams && dispatch(setSortId(queryItem));
+    queryItem && dispatch(setSortId(queryItem));
   }, [searchParams, sortList, dispatch]);
 
   return (

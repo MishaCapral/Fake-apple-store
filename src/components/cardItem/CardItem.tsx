@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  ActiveVariantsType,
+  TypeItemType,
+} from '../../redux/slices/itemsSlice';
 import InfoToggle from '../infoToggle/InfoToggle';
 import styles from './CardItem.module.scss';
 
@@ -8,17 +12,8 @@ type CardItemProps = {
   category: string;
   title: string;
   img: string;
-  type: {
-    model: string;
-    optionIndex: {
-      option: string;
-      price: number;
-    }[];
-  }[];
-  activeVariants: {
-    modelIndex: number;
-    optionIndex: number;
-  };
+  type: TypeItemType[];
+  activeVariants: ActiveVariantsType;
 };
 
 const CardItem: React.FC<CardItemProps> = ({

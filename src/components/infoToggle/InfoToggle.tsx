@@ -1,18 +1,49 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setActiveModel, setActiveOption } from '../../redux/slices/itemsSlice';
+import {
+  setActiveModel,
+  setActiveOption,
+  TypeItemType,
+  ActiveVariantsType,
+} from '../../redux/slices/itemsSlice';
 import { addProduct } from '../../redux/slices/cartSlice';
 import styles from './InfoToggle.module.scss';
 import ButtonAdd from '../buttons/ButtonAdd';
 
-const InfoToggle = ({ id, type, title, img, activeVariants }) => {
-  const dispatch = useDispatch();
-  const { products } = useSelector((state) => state.cart);
+interface InfoToggleInterface {
+  id: string;
+  type: TypeItemType[];
+  title: string;
+  img: string;
+  activeVariants: ActiveVariantsType;
+}
+export type ActiveModelType = {
+  newModelIndex: number;
+  id: string;
+};
+export type ActiveOptionType = {
+  newOptionIndex: number;
+  id: string;
+};
 
-  const setModel = (index, id) => {
-    dispatch(setActiveModel({ newModelIndex: index, id: id }));
+const InfoToggle = ({
+  id,
+  type,
+  title,
+  img,
+  activeVariants,
+}: InfoToggleInterface) => {
+  const dispatch = useDispatch();
+  const { products } = useSelector((state: any) => state.cart);
+
+  const setModel = (index: number, id: string) => {
+    dispatch(
+      setActiveModel({ newModelIndex: index, id: id } as ActiveModelType),
+    );
   };
-  const setOption = (index, id) => {
-    dispatch(setActiveOption({ newOptionIndex: index, id: id }));
+  const setOption = (index: number, id: string) => {
+    dispatch(
+      setActiveOption({ newOptionIndex: index, id: id } as ActiveOptionType),
+    );
   };
 
   const price =
@@ -60,7 +91,7 @@ const InfoToggle = ({ id, type, title, img, activeVariants }) => {
         </ul>
 
         <ul>
-          {type[activeVariants.modelIndex].options.map((x, index) => (
+          {type[activeVariants.modelIndex].options.map((item, index) => (
             <li
               key={index}
               onClick={() => setOption(index, id)}
@@ -68,7 +99,7 @@ const InfoToggle = ({ id, type, title, img, activeVariants }) => {
                 activeVariants.optionIndex === index ? styles.item__active : ''
               }
             >
-              {x.option}
+              {item.option}
             </li>
           ))}
         </ul>
