@@ -1,7 +1,13 @@
+import React from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import style from './ButtonAdd.module.scss';
 
-const ButtonAdd = ({ callback, count }) => {
+type ButtonAddProps = {
+  callback?: () => void;
+  count?: number;
+};
+
+const ButtonAdd: React.FC<ButtonAddProps> = ({ callback, count }) => {
   return (
     <button className={style.button} onClick={callback}>
       <AddIcon />

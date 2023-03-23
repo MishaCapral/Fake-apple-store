@@ -1,27 +1,28 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { useToggle } from 'react-use';
 import { useNavigate, useParams } from 'react-router';
-import { setItem } from '../../redux/slices/itemsSlice';
+import { selectItems, setItem } from '../../redux/slices/itemsSlice';
 import { CircularProgress, Dialog, DialogActions } from '@mui/material';
 import getItem from '../../api/getItem';
 import styles from './ItemDetails.module.scss';
 import InfoToggle from '../../components/infoToggle/InfoToggle';
-import ButtonAdd from '../../components/buttons/ButtonAdd';
 import CloseIcon from '@mui/icons-material/Close';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
-function ItemDetails() {
-  let { id } = useParams();
+const ItemDetails: React.FC = () => {
+  let { id, category } = useParams();
   const [openModal, setOpenModal] = useToggle(false);
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 
   const dispatch = useDispatch();
-  const { items } = useSelector((state) => state.items);
+  const { items } = useSelector(selectItems);
 
+  //--------- not typified ---------
   if (items.length === 0) {
-    async function fetchItem() {
+    const fetchItem = async () => {
       try {
         const item = await getItem(id);
         dispatch(setItem([item]));
@@ -30,7 +31,7 @@ function ItemDetails() {
         alert('something went wrong');
         <Navigate to='/' />;
       }
-    }
+    };
     fetchItem();
   }
   const item = items.find((item) => item.id === id);
@@ -59,23 +60,13 @@ function ItemDetails() {
             {item.description}
           </p>
           <InfoToggle
-            id={id}
+            id={item.id}
+            title={item.title}
+            img={item.img}
             type={item.type}
             activeVariants={item.activeVariants}
+            category={category!}
           />
-
-          <div className={styles.infoContainer__bottom}>
-            <p className={styles.infoContainer__price}>
-              Price:{' '}
-              {
-                item.type[item.activeVariants.versionIndex].version[
-                  item.activeVariants.memoryIndex
-                ].price
-              }{' '}
-              $
-            </p>
-            <ButtonAdd />
-          </div>
         </div>
       </div>
 
@@ -89,6 +80,6 @@ function ItemDetails() {
       </Dialog>
     </div>
   );
-}
+};
 
 export default ItemDetails;

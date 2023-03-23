@@ -1,10 +1,11 @@
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Search from '../search/Search';
 import styles from './Header.module.scss';
 import AppleIcon from '@mui/icons-material/Apple';
 import ButtonCart from '../buttons/ButtonCart';
 
-const Header = () => {
+const Header: React.FC = () => {
   const { search } = useLocation();
   return (
     <div className={styles.header}>

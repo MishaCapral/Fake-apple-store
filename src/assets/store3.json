@@ -1,0 +1,325 @@
+[
+  {
+    "id": "1",
+    "category": "IPhone",
+    "title": "iPhone 14 Pro",
+    "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.",
+    "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone14pro-202209?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1663611329492",
+    "type": [
+      {
+        "model": "14 Pro",
+        "options": [
+          {
+            "option": "128 GB",
+            "price": 999
+          },
+          {
+            "option": "256 GB",
+            "price": 1099
+          },
+          {
+            "option": "512 GB",
+            "price": 1299
+          }
+        ]
+      },
+      {
+        "model": "14 Pro Max",
+        "options": [
+          {
+            "option": "128 GB",
+            "price": 1099
+          },
+          {
+            "option": "256 GB",
+            "price": 1299
+          },
+          {
+            "option": "512 GB",
+            "price": 1399
+          }
+        ]
+      }
+    ],
+    "activeVariants": {
+      "optionIndex": 0,
+      "modelIndex": 0
+    },
+    "minPrice": 999
+  },
+
+  {
+    "id": "2",
+    "category": "IPhone",
+    "title": "iPhone 14",
+    "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.",
+    "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone14-202209?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1661958160674",
+    "type": [
+      {
+        "model": "14",
+        "options": [
+          { "option": "128 GB", "price": 800 },
+          { "option": "256 GB", "price": 899 },
+          { "option": "512 GB", "price": 1000 }
+        ]
+      },
+
+      {
+        "model": "14 Plus",
+        "options": [
+          { "option": "128 GB", "price": 900 },
+          { "option": "256 GB", "price": 1100 },
+          { "option": "512 GB", "price": 1300 }
+        ]
+      }
+    ],
+    "activeVariants": {
+      "optionIndex": 0,
+      "modelIndex": 0
+    },
+    "minPrice": 800
+  },
+  {
+    "id": "3",
+    "category": "IPhone",
+    "title": "iPhone 13",
+    "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.",
+    "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone13-202209?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1661958176452",
+    "type": [
+      {
+        "model": "13 mini",
+        "options": [
+          { "option": "128 GB", "price": 599 },
+          { "option": "256 GB", "price": 699 },
+          { "option": "512 GB", "price": 800 }
+        ]
+      },
+
+      {
+        "model": "13",
+        "options": [
+          { "option": "128 GB", "price": 700 },
+          { "option": "256 GB", "price": 800 },
+          { "option": "512 GB", "price": 899 }
+        ]
+      }
+    ],
+    "activeVariants": {
+      "optionIndex": 0,
+      "modelIndex": 0
+    },
+    "minPrice": 599
+  },
+  {
+    "id": "4",
+    "category": "IPhone",
+    "title": "iPhone SE",
+    "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.",
+    "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphonese-202203?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1646415838921",
+    "type": [
+      {
+        "model": "SE",
+        "options": [
+          { "option": "128 GB", "price": 429 },
+          { "option": "256 GB", "price": 500 },
+          { "option": "512 GB", "price": 630 }
+        ]
+      }
+    ],
+    "activeVariants": {
+      "optionIndex": 0,
+      "modelIndex": 0
+    },
+    "minPrice": 429
+  },
+  {
+    "id": "5",
+    "category": "IPad",
+    "title": "iPad Pro",
+    "description": "The ultimate iPad experience with the most advanced technology. Serious performance in a thin and light design. All the essentials in the most affordable iPad.",
+    "img": "https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_pro__erf9x8mw04sy_large.png",
+    "type": [
+      {
+        "model": "11-inch display",
+        "options": [
+          { "option": "128 GB", "price": 799 },
+          { "option": "256 GB", "price": 899 },
+          { "option": "512 GB", "price": 1000 }
+        ]
+      },
+
+      {
+        "model": "12.9-inch display",
+        "options": [
+          { "option": "128 GB", "price": 900 },
+          { "option": "256 GB", "price": 999 },
+          { "option": "512 GB", "price": 1100 }
+        ]
+      }
+    ],
+    "activeVariants": {
+      "optionIndex": 0,
+      "modelIndex": 0
+    },
+    "minPrice": 799
+  },
+  {
+    "id": "6",
+    "category": "IPad",
+    "title": "iPad Air",
+    "description": "The ultimate iPad experience with the most advanced technology. Serious performance in a thin and light design. All the essentials in the most affordable iPad.",
+    "img": "https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_air__bxjv33pk6nte_large.png",
+    "type": [
+      {
+        "model": "11-inch display",
+        "options": [
+          { "option": "64 GB", "price": 599 },
+          { "option": "128 GB", "price": 699 }
+        ]
+      }
+    ],
+    "activeVariants": {
+      "optionIndex": 0,
+      "modelIndex": 0
+    },
+    "minPrice": 599
+  },
+  {
+    "id": "7",
+    "category": "IPad",
+    "title": "iPad",
+    "description": "The ultimate iPad experience with the most advanced technology. Serious performance in a thin and light design. All the essentials in the most affordable iPad.",
+    "img": "https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_10_9__f7p2wja0gwuy_large.png",
+    "type": [
+      {
+        "model": "9th generation",
+        "options": [
+          { "option": "128 GB", "price": 449 },
+          { "option": "256 GB", "price": 559 },
+          { "option": "512 GB", "price": 700 }
+        ]
+      },
+
+      {
+        "model": "10th generation",
+        "options": [
+          { "option": "128 GB", "price": 530 },
+          { "option": "256 GB", "price": 630 },
+          { "option": "512 GB", "price": 800 }
+        ]
+      }
+    ],
+    "activeVariants": {
+      "optionIndex": 0,
+      "modelIndex": 0
+    },
+    "minPrice": 449
+  },
+  {
+    "id": "8",
+    "category": "IPad",
+    "title": "iPad mini",
+    "description": "The ultimate iPad experience with the most advanced technology. Serious performance in a thin and light design. All the essentials in the most affordable iPad.",
+    "img": "https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_mini__czcsk9ukpeie_large.png",
+    "type": [
+      {
+        "model": "mini",
+        "options": [
+          { "option": "64 GB", "price": 449 },
+          { "option": "128 GB", "price": 529 }
+        ]
+      }
+    ],
+    "activeVariants": {
+      "optionIndex": 0,
+      "modelIndex": 0
+    },
+    "minPrice": 449
+  },
+  {
+    "id": "9",
+    "category": "Mac",
+    "title": "MacBook Air",
+    "description": "Power. Its in the Air. MacBook Air with M1 is an incredibly portable laptop — its nimble and quick, with a silent, fanless design and a beautiful Retina display. Thanks to its slim profile and all-day battery life, this Air moves at the speed of lightness.",
+    "img": "https://www.apple.com/v/mac/home/bs/images/overview/compare/compare_mba__fchj615oz0yi_large.png",
+    "type": [
+      {
+        "model": "M1 chip",
+        "options": [
+          { "option": "512 GB", "price": 999 },
+          { "option": "1 TB", "price": 1099 }
+        ]
+      },
+
+      {
+        "model": "M2 chip",
+        "options": [
+          { "option": "512 GB", "price": 1099 },
+          { "option": "1 TB", "price": 1299 }
+        ]
+      }
+    ],
+    "activeVariants": {
+      "optionIndex": 0,
+      "modelIndex": 0
+    },
+    "minPrice": 999
+  },
+  {
+    "id": "10",
+    "category": "Mac",
+    "title": "MacBook Pro",
+    "description": "Pro anywhere.The new M2 chip makes the 13-inch MacBook Pro more capable than ever. The same compact design supports up to 20 hours of battery life1 and an active cooling system to sustain enhanced performance. Featuring a brilliant Retina display, a FaceTime HD camera, and studio-quality mics, its our most portable pro laptop.",
+    "img": "https://www.apple.com/v/mac/home/bs/images/overview/compare/compare_mbp13__euj5z15300om_large.png",
+    "type": [
+      {
+        "model": "13-inch display",
+        "options": [
+          { "option": "512 GB", "price": 1299 },
+          { "option": "1 TB", "price": 1399 }
+        ]
+      },
+
+      {
+        "model": "14-inch display",
+        "options": [
+          { "option": "512 GB", "price": 1399 },
+          { "option": "1 TB", "price": 1499 }
+        ]
+      },
+      {
+        "model": "16-inch display",
+        "options": [
+          { "option": "512 GB", "price": 1599 },
+          { "option": "1 TB", "price": 1699 }
+        ]
+      }
+    ],
+    "activeVariants": {
+      "optionIndex": 0,
+      "modelIndex": 0
+    },
+    "minPrice": 1299
+  },
+  {
+    "id": "11",
+    "category": "Apple Watch",
+    "title": "Apple Watch Series 8",
+    "description": "The stainless steel case is durable and polished to a shiny, mirror-like finish.The Sport Band is made from a durable yet surprisingly soft high-performance fluoroelastomer with an innovative pin-and-tuck closure.",
+    "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MR2P3ref_VW_34FR+watch-41-stainless-silver-cell-8s_VW_34FR_WF_CO?wid=700&hei=700&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1676836802403%2C1661890809922",
+    "type": [
+      {
+        "model": "Silver Stainless Steel Case with Sport Band",
+        "options": [
+          { "option": "41mm", "price": 699 },
+          { "option": "45mm", "price": 749 }
+        ]
+      }
+    ],
+    "activeVariants": {
+      "optionIndex": 0,
+      "modelIndex": 0
+    },
+    "minPrice": 699
+  }
+]

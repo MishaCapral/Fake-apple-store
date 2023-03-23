@@ -3,7 +3,7 @@
 .cart {
   display: flex;
   justify-content: center;
-  background-color: $blue;
+  background-color: $black;
   border-radius: 30px;
   padding: 10px 20px;
   min-width: 100px;
@@ -27,11 +27,11 @@
   }
 
   &:hover {
-    background-color: darken($blue, 8%);
+    background-color: darken($black, 8%);
   }
 
   &:active {
-    background-color: darken($blue, 12%);
+    background-color: darken($black, 12%);
     transform: translateY(1px);
   }
 

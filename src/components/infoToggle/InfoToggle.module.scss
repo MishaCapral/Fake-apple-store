@@ -2,7 +2,6 @@
 
 .item {
   text-align: center;
-  margin-bottom: 65px;
 
   &__selector {
     display: flex;
@@ -39,5 +38,17 @@
   &__active {
     background-color: $white;
     border-radius: 5px;
+  }
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  &__price {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: 0.015em;
   }
 }

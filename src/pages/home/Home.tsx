@@ -1,3 +1,4 @@
+import React from 'react';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -12,8 +13,8 @@ import m1_eyebrow from '../../assets/images/m1_eyebrow.png';
 import display from '../../assets/images/display.jpg';
 import m1_laptop from '../../assets/images/m1_laptop.png';
 
-function Home() {
-  const windowSize = useRef([window.innerWidth]);
+const Home: React.FC = () => {
+  const windowSize = useRef(window.innerWidth);
   window.scrollTo(0, 0);
   return (
     <div className={styles.home}>
@@ -190,6 +191,6 @@ function Home() {
       </section>
     </div>
   );
-}
+};
 
 export default Home;
