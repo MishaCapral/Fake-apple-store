@@ -71,7 +71,7 @@ const Cart: React.FC = () => {
         )}
 
         <div className={styles.cart__bottom}>
-          {!products && (
+          {totalCount > 0 && (
             <div className={styles.cart__bottom__details}>
               <span>
                 amount of: <b>{totalCount} p.</b>
