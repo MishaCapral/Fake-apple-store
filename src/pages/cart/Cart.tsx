@@ -13,6 +13,7 @@ import CartItem from '../../components/cartItem/CartItem';
 import ButtonOutlineRectangle from '../../components/buttons/ButtonOutlineRectangle';
 import ButtonFillRectangle from '../../components/buttons/ButtonFillRectangle';
 import EmptyCart from '../../components/emptyCart/EmptyCart';
+import useDidMountEffect from '../../utils/useDidMountEffect';
 
 const Cart: React.FC = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,11 @@ const Cart: React.FC = () => {
   const [openModal, setOpenModal] = useToggle(false);
 
   const controls = useAnimationControls();
+
+  useDidMountEffect(() => {
+    const json = JSON.stringify(products);
+    localStorage.setItem('cart', json);
+  }, [products]);
 
   const clearAll = () => {
     setOpenModal();

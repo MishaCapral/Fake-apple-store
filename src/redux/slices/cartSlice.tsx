@@ -1,4 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import getCartLocalStorage from '../../utils/getCartLocalStorage';
+import { updateProductPrice } from '../../utils/updateProductPrice';
+import updateTotalCount from '../../utils/updateTotalCount';
+import updateTotalPrice from '../../utils/updateTotalPrice';
 import { RootState } from '../store';
 
 export type ProductType = {
@@ -24,30 +28,19 @@ export type ItemForCartType = {
   price?: number;
 };
 
-interface CartSliceInterface {
+export interface CartSliceInterface {
   totalPrice: number;
   totalCount: number;
   products: ProductType[];
 }
 
+const { totalPrice, totalCount, products } = getCartLocalStorage();
+
 const initialState: CartSliceInterface = {
-  totalPrice: 0,
-  totalCount: 0,
-  products: [],
+  totalPrice,
+  totalCount,
+  products,
 };
-
-const updateTotalPrice = (state: CartSliceInterface) =>
-  (state.totalPrice = state.products.reduce((acc, product) => {
-    return product.price * product.count + acc;
-  }, 0));
-
-const updateProductPrice = (product: ProductType) =>
-  (product.productPrice = product.price * product.count);
-
-const updateTotalCount = (state: CartSliceInterface) =>
-  (state.totalCount = state.products.reduce((acc, product) => {
-    return product.count + acc;
-  }, 0));
 
 export const cartSlice = createSlice({
   name: 'cart',
@@ -72,8 +65,8 @@ export const cartSlice = createSlice({
           productPrice: action.payload.price,
         });
       }
-      updateTotalPrice(state);
-      updateTotalCount(state);
+      state.totalPrice = updateTotalPrice(state.products);
+      state.totalCount = updateTotalCount(state.products);
     },
     subtractProduct: (state, action: PayloadAction<ItemForCartType>) => {
       const findItem = state.products.find(
@@ -86,8 +79,8 @@ export const cartSlice = createSlice({
       if (findItem) {
         findItem.count > 1 && findItem.count--;
         updateProductPrice(findItem);
-        updateTotalPrice(state);
-        updateTotalCount(state);
+        state.totalPrice = updateTotalPrice(state.products);
+        state.totalCount = updateTotalCount(state.products);
       }
     },
     deleteProduct: (state, action: PayloadAction<ItemForCartType>) => {
@@ -100,8 +93,8 @@ export const cartSlice = createSlice({
       if (findItem) {
         const index = state.products.indexOf(findItem);
         state.products.splice(index, 1);
-        updateTotalPrice(state);
-        updateTotalCount(state);
+        state.totalPrice = updateTotalPrice(state.products);
+        state.totalCount = updateTotalCount(state.products);
       }
     },
     clearAllProducts: (state) => {

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setActiveModel,
@@ -8,6 +9,7 @@ import {
 import { addProduct, selectCart } from '../../redux/slices/cartSlice';
 import styles from './InfoToggle.module.scss';
 import ButtonAdd from '../buttons/ButtonAdd';
+import useDidMountEffect from '../../utils/useDidMountEffect';
 
 interface InfoToggleInterface {
   id: string;
@@ -26,16 +28,21 @@ export type ActiveOptionType = {
   id: string;
 };
 
-const InfoToggle = ({
+const InfoToggle: React.FC<InfoToggleInterface> = ({
   id,
   type,
   title,
   img,
   category,
   activeVariants,
-}: InfoToggleInterface) => {
+}) => {
   const dispatch = useDispatch();
   const { products } = useSelector(selectCart);
+
+  useDidMountEffect(() => {
+    const json = JSON.stringify(products);
+    localStorage.setItem('cart', json);
+  }, [products]);
 
   const setModel = (index: number, id: string) => {
     dispatch(
