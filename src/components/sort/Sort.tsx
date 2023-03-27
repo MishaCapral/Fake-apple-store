@@ -4,13 +4,14 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import styles from './Sort.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilter, setSortId } from '../../redux/slices/filterSlice';
-import { useSearchParams } from 'react-router-dom';
-import { useEffect } from 'react';
+// import { useSearchParams } from 'react-router-dom';
+// import { useEffect } from 'react';
 
 const Sort: React.FC = () => {
-  const { sortId, sortList, categoryId } = useSelector(selectFilter);
+  //categoryId add to useSelector
+  const { sortId, sortList } = useSelector(selectFilter);
   const dispatch = useDispatch();
-  const [searchParams, setSearchParams] = useSearchParams();
+  //const [searchParams, setSearchParams] = useSearchParams();
   const [popup, setPopup] = useToggle(false);
 
   const onClickPopupItem = (item) => {
@@ -19,21 +20,21 @@ const Sort: React.FC = () => {
   };
 
   // * update URL when change category
-  useEffect(() => {
-    setSearchParams((searchParams) => {
-      searchParams.set('sort', sortId.sortProperty);
-      return searchParams;
-    });
-  }, [sortId, categoryId, setSearchParams]);
+  // useEffect(() => {
+  //   setSearchParams((searchParams) => {
+  //     searchParams.set('sort', sortId.sortProperty);
+  //     return searchParams;
+  //   });
+  // }, [sortId, categoryId, setSearchParams]);
 
   // * Read query params from URL and update data
-  useEffect(() => {
-    const queryParams = searchParams.get('sort');
-    const queryItem = sortList.find(
-      (item) => item.sortProperty === queryParams,
-    );
-    queryItem && dispatch(setSortId(queryItem));
-  }, [searchParams, sortList, dispatch]);
+  // useEffect(() => {
+  //   const queryParams = searchParams.get('sort');
+  //   const queryItem = sortList.find(
+  //     (item) => item.sortProperty === queryParams,
+  //   );
+  //   queryItem && dispatch(setSortId(queryItem));
+  // }, [searchParams, sortList, dispatch]);
 
   return (
     <div className={styles.sort}>
