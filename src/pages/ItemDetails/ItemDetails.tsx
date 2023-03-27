@@ -16,7 +16,7 @@ const ItemDetails: React.FC = () => {
   const [openModal, setOpenModal] = useToggle(false);
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
-
+  window.scrollTo(0, 0);
   const dispatch = useDispatch();
   const { items } = useSelector(selectItems);
 
