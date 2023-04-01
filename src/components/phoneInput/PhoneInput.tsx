@@ -19,7 +19,6 @@ import {
 
 export interface MUIPhoneProps extends BaseTextFieldProps {
   value: string;
-  //onChange: (phone: string) => void;
   formik: any;
 }
 
@@ -38,8 +37,6 @@ export const PhoneInputMui: React.FC<MUIPhoneProps> = ({
         //const number = data.phone.replace(/(\+|\.|-|\/|\\| )/g, '');
         // setTimeout need to disabled error: 'Cannot update a component while rendering a different component warning'
         setTimeout(() => formik.setFieldValue('phone', data.phone), 0);
-
-        //onChange(data.phone);
       },
     });
 

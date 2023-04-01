@@ -6,9 +6,10 @@ import CartItem from '../../components/cartItem/CartItem';
 import { selectCart } from '../../redux/slices/cartSlice';
 import styles from './Ordering.module.scss';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
+import ListIcon from '@mui/icons-material/List';
 import ButtonOutlineRectangle from '../../components/buttons/ButtonOutlineRectangle';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { Button, FormControlLabel } from '@mui/material';
+import { Button, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { PhoneInputMui } from '../../components/phoneInput/PhoneInput';
@@ -39,6 +40,11 @@ const Ordering = () => {
 
   const { products } = useSelector(selectCart);
 
+  const deliveryOptions = {
+    post: 'post',
+    courier: 'courier',
+  };
+
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -46,6 +52,8 @@ const Ordering = () => {
       company: '',
       email: '',
       phone: '',
+      invoice: false,
+      deliveryOptions: deliveryOptions.post,
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -68,8 +76,8 @@ const Ordering = () => {
       </div>
       <form onSubmit={formik.handleSubmit}>
         <div className={styles.order__recipients}>
-          <div className={styles.order__recipients__wrapper}>
-            <b>Recipients details</b>
+          <div className={styles.subWrapper}>
+            <b className={styles.subtitle}>Recipients details</b>
 
             <TextField
               id='firstName'
@@ -119,20 +127,19 @@ const Ordering = () => {
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
             />
-            {/* <TextField id='city' label='city' variant='outlined' margin='dense' />
-          <TextField
-            id='street'
-            label='street'
-            variant='outlined'
-            margin='dense'
-          /> */}
 
             <PhoneInputMui value={formik.values.phone} formik={formik} />
 
-            <b>Do you need an invoice for your order? </b>
+            <b className={styles.subtitle}>
+              Do you need an invoice for your order?{' '}
+            </b>
             <FormControlLabel
-              control={<Checkbox />}
+              control={
+                <Checkbox id='invoice' checked={formik.values.invoice} />
+              }
               label='I want to receive an invoice'
+              checked={formik.values.invoice}
+              onChange={formik.handleChange}
             />
 
             <p>
@@ -143,10 +150,37 @@ const Ordering = () => {
           </div>
         </div>
 
-        {products &&
-          products.map((item) => (
-            <CartItem key={item.renderId} product={item} isOrder={true} />
-          ))}
+        <h2 className={styles.order__title}>
+          <ListIcon />
+          Delivery options
+        </h2>
+        <div className={styles.subWrapper}>
+          <b className={styles.subtitle}>Purchase</b>
+          {products &&
+            products.map((item) => (
+              <CartItem key={item.renderId} product={item} isOrder={true} />
+            ))}
+        </div>
+
+        <div className={styles.subWrapper}>
+          <b className={styles.subtitle}>Delivery address</b>
+          <RadioGroup
+            name='deliveryOptions'
+            value={formik.values.deliveryOptions}
+            onChange={formik.handleChange}
+          >
+            <FormControlLabel
+              value={deliveryOptions.post}
+              control={<Radio />}
+              label='InPoost pick-up point'
+            />
+            <FormControlLabel
+              value={deliveryOptions.courier}
+              control={<Radio />}
+              label='Courier'
+            />
+          </RadioGroup>
+        </div>
 
         <Button color='primary' variant='contained' fullWidth type='submit'>
           Submit
