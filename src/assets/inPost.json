@@ -1,0 +1,35 @@
+[
+  {
+    "city": "Wroclaw",
+    "region": "Poland",
+    "offices": [
+      {
+        "office": "Office №1. address: Bierutowska 81C, Zip code: 51-317, tel: 722 444 000"
+      },
+      {
+        "office": "Office №2. address: Parkowa 10, Zip code: 55-080, tel: 722 444 000"
+      },
+      {
+        "office": "Office №3. address: Północna 1, Zip code: 55-114, tel: 722 444 000"
+      }
+    ]
+  },
+  {
+    "city": "Opole",
+    "region": "Poland",
+    "offices": [
+      {
+        "office": "Office №1. address:  Partyzancka 95, Zip code: 45-801, tel: 722 444 000"
+      }
+    ]
+  },
+  {
+    "city": "Warszawa",
+    "region": "Poland",
+    "offices": [
+      {
+        "office": "Office №1. address:  Partyzancka 95, Zip code: 45-801, tel: 722 444 000"
+      }
+    ]
+  }
+]
