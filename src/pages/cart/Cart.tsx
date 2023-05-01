@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion, useAnimationControls } from 'framer-motion';
 import { Dialog, DialogActions } from '@mui/material';
@@ -87,9 +87,13 @@ const Cart: React.FC = () => {
               <ArrowBackIosIcon fontSize='small' />
               <span>Back</span>
             </ButtonOutlineRectangle>
-            <ButtonFillRectangle>
-              <span>Pay now</span>
-            </ButtonFillRectangle>
+            {products.length !== 0 && (
+              <Link to='/cart/ordering'>
+                <ButtonFillRectangle>
+                  <span>Pay now</span>
+                </ButtonFillRectangle>
+              </Link>
+            )}
           </div>
         </div>
       </div>

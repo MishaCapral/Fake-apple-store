@@ -14,7 +14,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import CloseIcon from '@mui/icons-material/Close';
 import ButtonCircle from '../buttons/ButtonCircle';
 
-const CartItem = ({ product }) => {
+const CartItem = ({ product, isOrder = false }) => {
   const { id, title, img, model, option, productPrice, count, category } =
     product as ProductType;
 
@@ -62,33 +62,46 @@ const CartItem = ({ product }) => {
                 </div>
               </div>
             </Grid>
+            {isOrder ? (
+              <Grid item xs={7}>
+                <div className={styles.item__countPriceWrapper}>
+                  <div className={styles.item__count}>
+                    <span>Pieces: {count}</span>
+                  </div>
+                  <p className={styles.item__price}>
+                    <span> Total price: {productPrice} $</span>
+                  </p>
+                </div>
+              </Grid>
+            ) : (
+              <Grid item xs={5}>
+                <div className={styles.item__countPriceWrapper}>
+                  <div className={styles.item__count}>
+                    <ButtonCircle callback={minusProduct}>
+                      <RemoveIcon fontSize='small' />
+                    </ButtonCircle>
 
-            <Grid item xs={5}>
-              <div className={styles.item__countPriceWrapper}>
-                <div className={styles.item__count}>
-                  <ButtonCircle callback={minusProduct}>
-                    <RemoveIcon fontSize='small' />
-                  </ButtonCircle>
+                    <span>{count}</span>
 
-                  <span>{count}</span>
-
-                  <ButtonCircle callback={plusProduct}>
-                    <AddIcon fontSize='small' />
+                    <ButtonCircle callback={plusProduct}>
+                      <AddIcon fontSize='small' />
+                    </ButtonCircle>
+                  </div>
+                  <p className={styles.item__price}>
+                    <span>{productPrice} $</span>
+                  </p>
+                </div>
+              </Grid>
+            )}
+            {!isOrder && (
+              <Grid item xs={2}>
+                <div className={styles.item__remove}>
+                  <ButtonCircle callback={removeProduct}>
+                    <CloseIcon fontSize='small' />
                   </ButtonCircle>
                 </div>
-                <p className={styles.item__price}>
-                  <span>{productPrice} $</span>
-                </p>
-              </div>
-            </Grid>
-
-            <Grid item xs={2}>
-              <div className={styles.item__remove}>
-                <ButtonCircle callback={removeProduct}>
-                  <CloseIcon fontSize='small' />
-                </ButtonCircle>
-              </div>
-            </Grid>
+              </Grid>
+            )}
           </Grid>
         </div>
       </motion.div>

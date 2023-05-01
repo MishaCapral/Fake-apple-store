@@ -9,6 +9,7 @@ import NotFound from './pages/notFound/NotFound';
 import SearchContextProvider from './context/SearchContext';
 import ItemDetails from './pages/ItemDetails/ItemDetails';
 import Categories from './pages/categories/Categories';
+import Ordering from './pages/ordering/Ordering';
 
 function App() {
   const { pathname } = useLocation();
@@ -24,6 +25,7 @@ function App() {
               <Route path='/:category' element={<Categories />} />
               <Route path='/:category/:id' element={<ItemDetails />} />
               <Route path='/cart' element={<Cart />} />
+              <Route path='/cart/ordering' element={<Ordering />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </div>

@@ -1,0 +1,15 @@
+[
+  { "city": "Wroclaw", "region": "Poland" },
+  { "city": "Opole", "region": "Poland" },
+  { "city": "Warszawa", "region": "Poland" },
+  { "city": "Lublin", "region": "Poland" },
+  { "city": "Bialystok", "region": "Poland" },
+  { "city": "Bydgoszcz", "region": "Poland" },
+  { "city": "Gdansk", "region": "Poland" },
+  { "city": "Katowice", "region": "Poland" },
+  { "city": "Krakow", "region": "Poland" },
+  { "city": "Lviv", "region": "Ukraine" },
+  { "city": "Kyiv", "region": "Ukraine" },
+  { "city": "Zhytomyr", "region": "Ukraine" },
+  { "city": "Sevastopol", "region": "Ukraine" }
+]
