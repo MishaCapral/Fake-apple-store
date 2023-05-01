@@ -9,19 +9,14 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 import ListIcon from '@mui/icons-material/List';
 import ButtonOutlineRectangle from '../../components/buttons/ButtonOutlineRectangle';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { Button, FormControlLabel, Radio, RadioGroup } from '@mui/material';
-import { useFormik, FormikProvider, getIn } from 'formik';
+import { Button, FormControlLabel } from '@mui/material';
+import { useFormik, FormikProvider } from 'formik';
 import * as yup from 'yup';
 import { PhoneInputMui } from '../../components/phoneInput/PhoneInput';
 import Checkbox from '@mui/material/Checkbox';
 import AutocompleteAsync from '../../components/autocomplete/AutocompleteAsync';
 
-const deliveryOptions = {
-  post: 'post',
-  courier: 'courier',
-};
-
-const validationSchema = yup.object({
+const validationSchema = yup.object().shape({
   firstName: yup
     .string()
     .min(2, 'First name should be of minimum 2 characters length')
@@ -40,16 +35,9 @@ const validationSchema = yup.object({
     .min(15, 'Enter a valid phone number')
     .required('Phone number is required'),
 
-  deliveryOptions: yup.bool(),
-
   pickUp: yup.object().shape({
     city: yup.string().required('City is required'),
     office: yup.string().required('Office is required'),
-  }),
-  courier: yup.object().shape({
-    city: yup.string().required('City is required'),
-    street: yup.string().required('Street is required'),
-    houseNumber: yup.string().required('house number is required'),
   }),
 });
 
@@ -57,7 +45,6 @@ const Ordering = () => {
   const navigate = useNavigate();
 
   const { products } = useSelector(selectCart);
-
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -66,15 +53,9 @@ const Ordering = () => {
       email: '',
       phone: '',
       invoice: false,
-      deliveryOptions: deliveryOptions.post,
       pickUp: {
         city: '',
         office: '',
-      },
-      courier: {
-        city: '',
-        street: '',
-        houseNumber: '',
       },
     },
     validationSchema: validationSchema,
@@ -189,83 +170,13 @@ const Ordering = () => {
 
           <div className={styles.subWrapper}>
             <b className={styles.subtitle}>Delivery address</b>
-            <RadioGroup
-              name='deliveryOptions'
-              value={formik.values.deliveryOptions}
-              onChange={formik.handleChange}
-            >
-              <FormControlLabel
-                value={deliveryOptions.post}
-                control={<Radio />}
-                label='InPoost pick-up point'
-              />
 
-              <AutocompleteAsync name='pickUp.city' label='City' type='city' />
-              <AutocompleteAsync
-                name='pickUp.office'
-                label='Office'
-                type='office'
-              />
-              <FormControlLabel
-                value={deliveryOptions.courier}
-                control={<Radio />}
-                label='Courier'
-              />
-              <TextField
-                id='courier.city'
-                name='courier.city'
-                label='City'
-                variant='outlined'
-                margin='dense'
-                size='small'
-                value={formik.values.courier.city}
-                onChange={formik.handleChange}
-                error={Boolean(
-                  getIn(formik.touched, 'courier.city') &&
-                    getIn(formik.errors, 'courier.city'),
-                )}
-                helperText={
-                  getIn(formik.touched, 'courier.city') &&
-                  getIn(formik.errors, 'courier.city')
-                }
-              />
-              <TextField
-                id='courier.street'
-                name='courier.street'
-                label='Street'
-                variant='outlined'
-                margin='dense'
-                size='small'
-                value={formik.values.courier.street}
-                onChange={formik.handleChange}
-                error={Boolean(
-                  getIn(formik.touched, 'courier.street') &&
-                    getIn(formik.errors, 'courier.street'),
-                )}
-                helperText={
-                  getIn(formik.touched, 'courier.street') &&
-                  getIn(formik.errors, 'courier.street')
-                }
-              />
-              <TextField
-                id='courier.houseNumber'
-                name='courier.houseNumber'
-                label='House number'
-                variant='outlined'
-                margin='dense'
-                size='small'
-                value={formik.values.courier.houseNumber}
-                onChange={formik.handleChange}
-                error={Boolean(
-                  getIn(formik.touched, 'courier.houseNumber') &&
-                    getIn(formik.errors, 'courier.houseNumber'),
-                )}
-                helperText={
-                  getIn(formik.touched, 'courier.houseNumber') &&
-                  getIn(formik.errors, 'courier.houseNumber')
-                }
-              />
-            </RadioGroup>
+            <AutocompleteAsync name='pickUp.city' label='City' type='city' />
+            <AutocompleteAsync
+              name='pickUp.office'
+              label='Office'
+              type='office'
+            />
           </div>
 
           <Button color='primary' variant='contained' fullWidth type='submit'>

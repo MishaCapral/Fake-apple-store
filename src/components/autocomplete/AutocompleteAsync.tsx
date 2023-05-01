@@ -73,6 +73,7 @@ const AutocompleteAsync: React.FC<AutocompleteAsyncInterface> = ({
   return (
     <Autocomplete
       onChange={typedOnChange}
+      disableClearable
       id={name}
       disabled={disabled}
       open={open}
